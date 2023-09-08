@@ -1,0 +1,128 @@
+PODS:
+  - Alamofire (5.7.1)
+  - CLImagePickerTool (3.1.3)
+  - EmptyDataSet-Swift (5.0.0)
+  - ETNavBarTransparent (1.1.3)
+  - HandyJSON (5.0.2)
+  - IQKeyboardManagerSwift (6.3.0)
+  - JXPagingView/Paging (2.1.2)
+  - JXPhotoBrowser (3.1.3)
+  - JXSegmentedView (1.3.0)
+  - Kingfisher (7.8.1)
+  - libwebp (1.3.1):
+    - libwebp/demux (= 1.3.1)
+    - libwebp/mux (= 1.3.1)
+    - libwebp/sharpyuv (= 1.3.1)
+    - libwebp/webp (= 1.3.1)
+  - libwebp/demux (1.3.1):
+    - libwebp/webp
+  - libwebp/mux (1.3.1):
+    - libwebp/demux
+  - libwebp/sharpyuv (1.3.1)
+  - libwebp/webp (1.3.1):
+    - libwebp/sharpyuv
+  - LookinServer (1.1.7):
+    - LookinServer/Core (= 1.1.7)
+  - LookinServer/Core (1.1.7)
+  - MBProgressHUD (1.2.0)
+  - MJRefresh (3.7.5)
+  - Moya (15.0.0):
+    - Moya/Core (= 15.0.0)
+  - Moya/Core (15.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (15.0.0):
+    - Moya/Core
+    - RxSwift (~> 6.0)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
+  - SnapKit (5.6.0)
+  - Toaster (2.3.0)
+  - YYKit (1.0.9):
+    - libwebp
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9):
+    - libwebp
+
+DEPENDENCIES:
+  - CLImagePickerTool
+  - EmptyDataSet-Swift (~> 5.0.0)
+  - ETNavBarTransparent
+  - HandyJSON
+  - IQKeyboardManagerSwift (= 6.3.0)
+  - JXPagingView/Paging
+  - JXPhotoBrowser (~> 3.0)
+  - JXSegmentedView (~> 1.3.0)
+  - Kingfisher
+  - LookinServer
+  - MBProgressHUD
+  - MJRefresh
+  - Moya
+  - Moya/RxSwift
+  - RxCocoa
+  - RxSwift
+  - SnapKit
+  - Toaster
+  - YYKit (from `https://github.com/SAGESSE-CN/YYKit.git`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - CLImagePickerTool
+    - EmptyDataSet-Swift
+    - ETNavBarTransparent
+    - HandyJSON
+    - IQKeyboardManagerSwift
+    - JXPagingView
+    - JXPhotoBrowser
+    - JXSegmentedView
+    - Kingfisher
+    - libwebp
+    - LookinServer
+    - MBProgressHUD
+    - MJRefresh
+    - Moya
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SnapKit
+    - Toaster
+
+EXTERNAL SOURCES:
+  YYKit:
+    :git: https://github.com/SAGESSE-CN/YYKit.git
+
+CHECKOUT OPTIONS:
+  YYKit:
+    :commit: 903d9e3c5a20089f152918fe8611fcafd52c2ad1
+    :git: https://github.com/SAGESSE-CN/YYKit.git
+
+SPEC CHECKSUMS:
+  Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
+  CLImagePickerTool: 2ef59c6524efd493571a0ee2bc42f445b4c5b2cb
+  EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
+  ETNavBarTransparent: dd05fd593b31d5d786e05631149ceea1e13b30ef
+  HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
+  IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
+  JXPagingView: 90924b364a2ff7e94db534fad1fa50925ff69ee4
+  JXPhotoBrowser: d32e94e1226d43bf5ed83164e3f5b651fed625e0
+  JXSegmentedView: fec0d335355b6e019c494fe2e030bde8a36d2df6
+  Kingfisher: 63f677311d36a3473f6b978584f8a3845d023dc5
+  libwebp: 33dc822fbbf4503668d09f7885bbfedc76c45e96
+  LookinServer: 4ce0469b066871525611d009d8d16a7a50c23491
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  Toaster: c3473963c78e8cabbf6ea6f11ad0fdaae6f54987
+  YYKit: 9ac092a14e3d5af709b707479bdb76b96a62fb41
+
+PODFILE CHECKSUM: 366e0856efc7e15372e896faec3ddd46ad681615
+
+COCOAPODS: 1.12.1

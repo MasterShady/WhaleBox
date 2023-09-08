@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "DE73A908-FB93-4CD3-9FB2-12DA58115029"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
+         <BreakpointContent
+            uuid = "50E8B44B-D1AE-47B4-AA6D-B787868EB32E"
+            shouldBeEnabled = "Yes"
+            nameForDebugger = "UITabBarButton_BP"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            symbolName = "UITabBarButton"
+            moduleName = "UIKit">
+            <Locations>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
