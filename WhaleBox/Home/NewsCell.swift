@@ -35,6 +35,7 @@ class NewsCell: UITableViewCell {
     
     func commonInit() {
         self.selectionStyle = .none
+        backgroundColor = .white
         titleLabel = UILabel()
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
@@ -51,7 +52,7 @@ class NewsCell: UITableViewCell {
             make.left.equalTo(20)
             make.right.equalTo(-20)
         }
-        contentLabel.chain.text(color: .kTextDrakGray).font(.systemFont(ofSize: 14)).numberOfLines(0)
+        contentLabel.chain.text(color: .kTextDrakGray).font(.systemFont(ofSize: 14)).numberOfLines(6)
         
         timeLabel = UILabel()
         contentView.addSubview(timeLabel)

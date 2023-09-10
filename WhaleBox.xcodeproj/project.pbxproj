@@ -91,6 +91,7 @@
 		EB362FCE2AA865130012D038 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB362FCC2AA865130012D038 /* LoginVC.swift */; };
 		EB362FD02AA86E380012D038 /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB362FCF2AA86E370012D038 /* CreatePostVC.swift */; };
 		EB362FD22AA9C3B60012D038 /* PostDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB362FD12AA9C3B50012D038 /* PostDetailVC.swift */; };
+		EB76B7B12AAE2D5100F7D54C /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB76B7B02AAE2D5100F7D54C /* SearchVC.swift */; };
 		EBD8862A2AA9F67600286C9F /* MineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD886292AA9F67600286C9F /* MineVC.swift */; };
 		EBD8862C2AAB105200286C9F /* MyCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD8862B2AAB105200286C9F /* MyCollectionVC.swift */; };
 		EBD8862E2AAB105900286C9F /* MyPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD8862D2AAB105900286C9F /* MyPostVC.swift */; };
@@ -196,6 +197,7 @@
 		EB362FCC2AA865130012D038 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		EB362FCF2AA86E370012D038 /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
 		EB362FD12AA9C3B50012D038 /* PostDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailVC.swift; sourceTree = "<group>"; };
+		EB76B7B02AAE2D5100F7D54C /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		EBD886292AA9F67600286C9F /* MineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineVC.swift; sourceTree = "<group>"; };
 		EBD8862B2AAB105200286C9F /* MyCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionVC.swift; sourceTree = "<group>"; };
 		EBD8862D2AAB105900286C9F /* MyPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostVC.swift; sourceTree = "<group>"; };
@@ -452,6 +454,7 @@
 				EB362FA72AA5B9AE0012D038 /* PagingListBaseView.swift */,
 				EB362FA52AA5B8E70012D038 /* PagingViewTableHeaderView.swift */,
 				EB362FA02AA5812E0012D038 /* HomeVC.swift */,
+				EB76B7B02AAE2D5100F7D54C /* SearchVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -677,6 +680,7 @@
 				EB362F722AA576AD0012D038 /* UIScrollView+Chain.swift in Sources */,
 				EB362F4B2AA576AD0012D038 /* AutoProgressHUD.swift in Sources */,
 				EB362F632AA576AD0012D038 /* MonthPicker.swift in Sources */,
+				EB76B7B12AAE2D5100F7D54C /* SearchVC.swift in Sources */,
 				EB362FBF2AA73EE60012D038 /* Moya++.swift in Sources */,
 				EBD8862C2AAB105200286C9F /* MyCollectionVC.swift in Sources */,
 				EB362F5F2AA576AD0012D038 /* BasePicker.swift in Sources */,
@@ -870,6 +874,7 @@
 				DEVELOPMENT_TEAM = 6475J8L3PC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WhaleBox/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "鲸鱼盒子";
 				INFOPLIST_KEY_NSCameraUsageDescription = "我们需要访问您的相机，以便您拍摄照片用于自定义头像。这将允许您在应用程序中使用相机功能，方便您在我们的APP中使用个性化的头像。\n";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "我们需要访问您的相册，以便您选择照片用于自定义头像。这将允许您在应用程序中使用相册功能，方便您在我们的APP中使用个性化的头像。";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "我们需要访问您的相册，以便您选择照片用于自定义头像。这将允许您在应用程序中使用相册功能，方便您在我们的APP中使用个性化的头像。";
@@ -907,6 +912,7 @@
 				DEVELOPMENT_TEAM = 6475J8L3PC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WhaleBox/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "鲸鱼盒子";
 				INFOPLIST_KEY_NSCameraUsageDescription = "我们需要访问您的相机，以便您拍摄照片用于自定义头像。这将允许您在应用程序中使用相机功能，方便您在我们的APP中使用个性化的头像。\n";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "我们需要访问您的相册，以便您选择照片用于自定义头像。这将允许您在应用程序中使用相册功能，方便您在我们的APP中使用个性化的头像。";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "我们需要访问您的相册，以便您选择照片用于自定义头像。这将允许您在应用程序中使用相册功能，方便您在我们的APP中使用个性化的头像。";

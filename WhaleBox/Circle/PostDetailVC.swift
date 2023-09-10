@@ -183,17 +183,20 @@ class PostDetailVC: BaseVC {
     }
     
     func requestCollect(){
-        userService.request(.collectPost(postId: post.id, collect: self.post.is_collect)) {[weak self] result in
-            guard let self = self else {return}
-            result.hj_map2 { body, error in
-                if let error = error{
-                    error.msg.hint()
-                    return
+        UserStore.checkLoginStatusThen {
+            userService.request(.collectPost(postId: post.id, collect: self.post.is_collect)) {[weak self] result in
+                guard let self = self else {return}
+                result.hj_map2 { body, error in
+                    if let error = error{
+                        error.msg.hint()
+                        return
+                    }
+                    
                 }
-                
+                (self.post.is_collect ? "收藏成功!" : "取消成功").hint()
             }
-            (self.post.is_collect ? "收藏成功!" : "取消成功").hint()
         }
+        
     }
     
     func updateComments(){

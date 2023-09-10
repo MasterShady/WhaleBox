@@ -65,9 +65,9 @@ extension PagingListBaseView: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
 
-    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 146
-    }
+//    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 146
+//    }
 
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         self.listViewDidScrollCallback?(scrollView)

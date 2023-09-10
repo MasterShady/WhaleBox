@@ -169,62 +169,62 @@ class CreatePostVC: BaseVC {
             guard let self = self else {return}
             self.imageStackView.removeAllSubviews()
             
-            let loopCount = min(3, value.element!.count + 1)
-            for i in 0..<loopCount {
-                let imageView = UIImageView()
-                imageView.snp.makeConstraints { make in
-                    make.width.height.equalTo(imgWH)
-                }
-                imageView.isUserInteractionEnabled = true
-                imageView.contentMode = .scaleAspectFit
-                imageView.clipsToBounds = true
-                
-                var action = {
-                    let alert = AEAlertView(style: .defaulted, title: "", message: "确定删除该照片吗?")
-                    alert.addAction(action: .init(title: "删除", handler: { action in
-                        var array = value.element!
-                        array.removeLast()
-                        self.imagesRelay.accept(array)
-                        alert.dismiss()
-                    }))
-                    alert.addAction(action: .init(title: "取消", handler: { action in
-                        alert.dismiss()
-                    }))
-                    alert.show()
-                    
-                }
-                if i == loopCount - 1{
-                    if i == value.element!.count - 1 {
-                        //最后一个,是照片
-                        imageView.image = value.element![i]
-                    }else{
-                        //添加照片的+好
-                        let image = UIImage(named: "add-image")?.resizeImageToSize(size: CGSize(width: 50, height: 50))
-                        imageView.image = image
-                        imageView.contentMode = .center
-                        imageView.size = CGSize(width: imgWH, height: imgWH)
-                        imageView.addDashLine(with: .kTextLightGray, width: 1, lineDashPattern: [5,5], cornerRadius: 5)
-                        
-                        action = {
-                            self.pickerTool.cl_setupImagePickerWith(MaxImagesCount: 1, superVC: self) {[weak self] (assets, cutImage) in
-                                guard let self = self else {return}
-                                guard let image = cutImage else { return }
-                                var raw = self.imagesRelay.value
-                                raw.append(image)
-                                self.imagesRelay.accept(raw)
-                                
-                            }
-                        }
-                    }
-                }else{
-                    imageView.image = value.element![i]
-                }
-                let tap = UITapGestureRecognizer { _ in
-                    action()
-                }
-                imageView.addGestureRecognizer(tap)
-                imageStackView.addArrangedSubview(imageView)
-            }
+//            let loopCount = min(3, value.element!.count + 1)
+//            for i in 0..<loopCount {
+//                let imageView = UIImageView()
+//                imageView.snp.makeConstraints { make in
+//                    make.width.height.equalTo(imgWH)
+//                }
+//                imageView.isUserInteractionEnabled = true
+//                imageView.contentMode = .scaleAspectFit
+//                imageView.clipsToBounds = true
+//
+//                var action = {
+//                    let alert = AEAlertView(style: .defaulted, title: "", message: "确定删除该照片吗?")
+//                    alert.addAction(action: .init(title: "删除", handler: { action in
+//                        var array = value.element!
+//                        array.removeLast()
+//                        self.imagesRelay.accept(array)
+//                        alert.dismiss()
+//                    }))
+//                    alert.addAction(action: .init(title: "取消", handler: { action in
+//                        alert.dismiss()
+//                    }))
+//                    alert.show()
+//
+//                }
+//                if i == loopCount - 1{
+//                    if i == value.element!.count - 1 {
+//                        //最后一个,是照片
+//                        imageView.image = value.element![i]
+//                    }else{
+//                        //添加照片的+好
+//                        let image = UIImage(named: "add-image")?.resizeImageToSize(size: CGSize(width: 50, height: 50))
+//                        imageView.image = image
+//                        imageView.contentMode = .center
+//                        imageView.size = CGSize(width: imgWH, height: imgWH)
+//                        imageView.addDashLine(with: .kTextLightGray, width: 1, lineDashPattern: [5,5], cornerRadius: 5)
+//
+//                        action = {
+//                            self.pickerTool.cl_setupImagePickerWith(MaxImagesCount: 1, superVC: self) {[weak self] (assets, cutImage) in
+//                                guard let self = self else {return}
+//                                guard let image = cutImage else { return }
+//                                var raw = self.imagesRelay.value
+//                                raw.append(image)
+//                                self.imagesRelay.accept(raw)
+//
+//                            }
+//                        }
+//                    }
+//                }else{
+//                    imageView.image = value.element![i]
+//                }
+//                let tap = UITapGestureRecognizer { _ in
+//                    action()
+//                }
+//                imageView.addGestureRecognizer(tap)
+//                imageStackView.addArrangedSubview(imageView)
+//            }
             
         }
         

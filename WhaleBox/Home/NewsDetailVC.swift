@@ -52,7 +52,7 @@ class NewsDetailVC: BaseVC {
         stackView.addSpacing(20)
         
         let authorLabel = UILabel()
-        authorLabel.chain.text(color: .kTextDrakGray).font(.systemFont(ofSize: 12)).text("南方+客户端")
+        authorLabel.chain.text(color: .kTextDrakGray).font(.systemFont(ofSize: 12)).text("\(kAppName)+客户端")
         stackView.addArrangedSubview(authorLabel.wrappedBy(insets))
         
         stackView.addSpacing(10)
@@ -104,7 +104,7 @@ class NewsDetailVC: BaseVC {
             
             imageView.kf.setImage(with: URL(subPath: image)) { resutl in
                 if case .success(let result) = resutl{
-                    coverImageView.snp.updateConstraints { make in
+                    imageView.snp.updateConstraints { make in
                         make.height.equalTo(result.image.size.height/result.image.size.width * kScreenWidth)
                     }
                 }
