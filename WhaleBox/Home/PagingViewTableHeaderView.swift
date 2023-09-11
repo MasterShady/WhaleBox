@@ -11,6 +11,8 @@ import UIKit
 class PagingViewTableHeaderView: UIView {
     var imageView: UIImageView!
     var imageViewFrame: CGRect!
+    
+    var clickBannerHandler: Block?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,7 +33,13 @@ class PagingViewTableHeaderView: UIView {
             make.right.equalTo(-20)
             make.width.equalTo(cardView.snp.height).multipliedBy(2)
         }
-        cardView.chain.backgroundColor(.yellow).corner(radius: 12).clipsToBounds(true)
+        cardView.chain.corner(radius: 12).clipsToBounds(true)
+        cardView.image = .init(named: "home_banner")
+        cardView.isUserInteractionEnabled = true
+        cardView.addGestureRecognizer(UITapGestureRecognizer(actionBlock: {[weak self] _ in
+            self?.clickBannerHandler?()
+        }))
+        
         
         let searchBar = UIButton()
         addSubview(searchBar)

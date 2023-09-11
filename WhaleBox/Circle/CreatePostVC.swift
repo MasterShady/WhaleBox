@@ -7,13 +7,17 @@
 
 import UIKit
 import RxCocoa
+import RxSwift
 import CLImagePickerTool
 import Moya
 
 class CreatePostVC: BaseVC {
+    let disposeBag = DisposeBag()
+    
     var titleField : UITextField!
     var imageStackView : UIStackView!
     var imagesRelay = BehaviorRelay(value: [UIImage]())
+    var gameCatRelay = BehaviorRelay(value: "")
     
     lazy var pickerTool : CLImagePickerTool = {
         let pickerTool = CLImagePickerTool.init()
@@ -39,13 +43,57 @@ class CreatePostVC: BaseVC {
     
     override func configSubViews() {
         
-        
-        
         view.backgroundColor = .kExLightGray
+        
+        let gameCatView = UIButton()
+        view.addSubview(gameCatView)
+        gameCatView.snp.makeConstraints { make in
+            make.top.equalTo(20 + kNavBarMaxY)
+            make.left.equalTo(14)
+            make.right.equalTo(-14)
+            make.height.equalTo(44)
+        }
+        gameCatView.chain.corner(radius: 6).clipsToBounds(true).backgroundColor(.white)
+        
+        let gameCatLabel = UILabel()
+        gameCatView.addSubview(gameCatLabel)
+        gameCatLabel.snp.makeConstraints { make in
+            make.left.equalTo(16)
+            make.centerY.equalToSuperview()
+        }
+        gameCatLabel.chain.text(color: .kTextBlack).font(.semibold(16)).text("游戏种类:")
+        
+        let gameCatValueLabel = UILabel()
+        gameCatView.addSubview(gameCatValueLabel)
+        gameCatValueLabel.snp.makeConstraints { make in
+            make.left.equalTo(gameCatLabel.snp.right).offset(20)
+            make.centerY.equalToSuperview()
+        }
+        
+        gameCatView.rx.tap.subscribe {[weak self] _ in
+            guard let self = self else {return}
+            let vc = CircleCatVC()
+            vc.didSelectedCat = {[weak vc] cat in
+                self.gameCatRelay.accept(cat)
+                vc?.popOrDismiss()
+            }
+            self.navigationController?.pushViewController(vc, animated: true)
+        }.disposed(by: disposeBag)
+        
+        gameCatRelay.map { value in
+            if value.count == 0{
+                return NSAttributedString("请选择", color: .kTextLightGray, font: .semibold(16))
+            }
+            return NSAttributedString(value, color: .kTextBlack, font: .semibold(16))
+        }.bind(to: gameCatValueLabel.rx.attributedText).disposed(by: disposeBag)
+        
+
+        
+        
         titleField = UITextField()
         view.addSubview(titleField)
         titleField.snp.makeConstraints { make in
-            make.top.equalTo(20 + kNavBarMaxY)
+            make.top.equalTo(gameCatView.snp.bottom).offset(20)
             make.left.equalTo(14)
             make.right.equalTo(-14)
             make.height.equalTo(44)
@@ -69,7 +117,7 @@ class CreatePostVC: BaseVC {
             make.top.equalTo(titleField.snp.bottom).offset(20)
             make.left.equalTo(14)
             make.right.equalTo(-14)
-            make.height.equalTo(300)
+            make.height.equalTo(200)
         }
         textContainer.chain.backgroundColor(.white).corner(radius: 5).clipsToBounds(true)
         
@@ -112,7 +160,7 @@ class CreatePostVC: BaseVC {
                     .foregroundColor : UIColor.red
                 ], range: (raw as NSString).range(of:"\(notEmptyText.count)"))
             return text
-        }.take(until: rx.deallocated).bind(to: charCountLabel.rx.attributedText)
+        }.bind(to: charCountLabel.rx.attributedText).disposed(by: disposeBag)
         
         
         let imageContainer = UIView()
@@ -158,75 +206,79 @@ class CreatePostVC: BaseVC {
             return text?.count ?? 0 > 0
         }
         
-        let postValid = Observable.combineLatest(contentValid, titleValid).map {
-            return $0.0 && $0.1
+        let catValid = gameCatRelay.map { text in
+            return text.count > 0
+        }
+        
+        let postValid = Observable.combineLatest(contentValid, titleValid, catValid).map {
+            return $0.0 && $0.1 && $0.2
         }
         
         
        
         
-        _ = imagesRelay.take(until: rx.deallocated).subscribe {[weak self] value in
+        _ = imagesRelay.subscribe {[weak self] value in
             guard let self = self else {return}
             self.imageStackView.removeAllSubviews()
             
-//            let loopCount = min(3, value.element!.count + 1)
-//            for i in 0..<loopCount {
-//                let imageView = UIImageView()
-//                imageView.snp.makeConstraints { make in
-//                    make.width.height.equalTo(imgWH)
-//                }
-//                imageView.isUserInteractionEnabled = true
-//                imageView.contentMode = .scaleAspectFit
-//                imageView.clipsToBounds = true
-//
-//                var action = {
-//                    let alert = AEAlertView(style: .defaulted, title: "", message: "确定删除该照片吗?")
-//                    alert.addAction(action: .init(title: "删除", handler: { action in
-//                        var array = value.element!
-//                        array.removeLast()
-//                        self.imagesRelay.accept(array)
-//                        alert.dismiss()
-//                    }))
-//                    alert.addAction(action: .init(title: "取消", handler: { action in
-//                        alert.dismiss()
-//                    }))
-//                    alert.show()
-//
-//                }
-//                if i == loopCount - 1{
-//                    if i == value.element!.count - 1 {
-//                        //最后一个,是照片
-//                        imageView.image = value.element![i]
-//                    }else{
-//                        //添加照片的+好
-//                        let image = UIImage(named: "add-image")?.resizeImageToSize(size: CGSize(width: 50, height: 50))
-//                        imageView.image = image
-//                        imageView.contentMode = .center
-//                        imageView.size = CGSize(width: imgWH, height: imgWH)
-//                        imageView.addDashLine(with: .kTextLightGray, width: 1, lineDashPattern: [5,5], cornerRadius: 5)
-//
-//                        action = {
-//                            self.pickerTool.cl_setupImagePickerWith(MaxImagesCount: 1, superVC: self) {[weak self] (assets, cutImage) in
-//                                guard let self = self else {return}
-//                                guard let image = cutImage else { return }
-//                                var raw = self.imagesRelay.value
-//                                raw.append(image)
-//                                self.imagesRelay.accept(raw)
-//
-//                            }
-//                        }
-//                    }
-//                }else{
-//                    imageView.image = value.element![i]
-//                }
-//                let tap = UITapGestureRecognizer { _ in
-//                    action()
-//                }
-//                imageView.addGestureRecognizer(tap)
-//                imageStackView.addArrangedSubview(imageView)
-//            }
+            let loopCount = min(3, value.element!.count + 1)
+            for i in 0..<loopCount {
+                let imageView = UIImageView()
+                imageView.snp.makeConstraints { make in
+                    make.width.height.equalTo(imgWH)
+                }
+                imageView.isUserInteractionEnabled = true
+                imageView.contentMode = .scaleAspectFit
+                imageView.clipsToBounds = true
+
+                var action = {
+                    let alert = AEAlertView(style: .defaulted, title: "", message: "确定删除该照片吗?")
+                    alert.addAction(action: .init(title: "删除", handler: { action in
+                        var array = value.element!
+                        array.removeLast()
+                        self.imagesRelay.accept(array)
+                        alert.dismiss()
+                    }))
+                    alert.addAction(action: .init(title: "取消", handler: { action in
+                        alert.dismiss()
+                    }))
+                    alert.show()
+
+                }
+                if i == loopCount - 1{
+                    if i == value.element!.count - 1 {
+                        //最后一个,是照片
+                        imageView.image = value.element![i]
+                    }else{
+                        //添加照片的+好
+                        let image = UIImage(named: "add-image")?.resizeImageToSize(size: CGSize(width: 50, height: 50))
+                        imageView.image = image
+                        imageView.contentMode = .center
+                        imageView.size = CGSize(width: imgWH, height: imgWH)
+                        imageView.addDashLine(with: .kTextLightGray, width: 1, lineDashPattern: [5,5], cornerRadius: 5)
+
+                        action = {
+                            self.pickerTool.cl_setupImagePickerWith(MaxImagesCount: 1, superVC: self) {[weak self] (assets, cutImage) in
+                                guard let self = self else {return}
+                                guard let image = cutImage else { return }
+                                var raw = self.imagesRelay.value
+                                raw.append(image)
+                                self.imagesRelay.accept(raw)
+
+                            }
+                        }
+                    }
+                }else{
+                    imageView.image = value.element![i]
+                }
+                let tap = UITapGestureRecognizer { _ in
+                    action()
+                }
+                imageView.addGestureRecognizer(tap)
+                imageStackView.addArrangedSubview(imageView)
+            }
             
-        }
+        }.disposed(by: disposeBag)
         
         let commitBtn = UIButton()
         view.addSubview(commitBtn)
@@ -238,15 +290,15 @@ class CreatePostVC: BaseVC {
         commitBtn.chain.normalBackgroundImage(.init(color: .kThemeColor)).disabledBackgroundImage(.init(color: .kTextLightGray)).font(.semibold(16)).normalTitle(text: "提交").normalTitleColor(color: .kTextBlack).disabledTitleColor(color: .white).corner(radius: 8).clipsToBounds(true)
         
         _ = postValid.bind(to: commitBtn.rx.isEnabled)
-        let a = Observable.combineLatest(titleField.rx.text, contentTextView.rx.observe(\.text), imagesRelay)
+        let a = Observable.combineLatest(gameCatRelay ,titleField.rx.text, contentTextView.rx.observe(\.text), imagesRelay)
         
         
         
-        let _ =  commitBtn.rx.tap.withLatestFrom(a).take(until: rx.deallocated).flatMapLatest { (title, content, images) in
+        let _ =  commitBtn.rx.tap.withLatestFrom(a).take(until: rx.deallocated).flatMapLatest { (type, title, content, images) in
             let imageBase64List = images.map{ image in
                 return image.jpegData(compressionQuality: 0.1)!.base64EncodedString()
             }.joined(separator: ",")
-            return userService.rx.request(.makePost(title: title!, content: content!, images: imageBase64List)).catch({ error in
+            return userService.rx.request(.makePost(type:type,title: title!, content: content!, images: imageBase64List)).catch({ error in
                 let error = error as NSError
                 let data = try! NSKeyedArchiver.archivedData(withRootObject: error, requiringSecureCoding: false)
                 return Single.just(Response(statusCode: 6666, data:data))

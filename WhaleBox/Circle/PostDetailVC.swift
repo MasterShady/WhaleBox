@@ -21,6 +21,8 @@ extension UITextField {
 
 class PostDetailVC: BaseVC {
     
+    var commentField: UITextField!
+    
     var scrollView: UIScrollView!
     var comments = [PostModel]() {
         didSet{
@@ -285,6 +287,8 @@ class PostDetailVC: BaseVC {
                     return
                 }
                 "评论成功".hint()
+                self.commentField.endEditing(true)
+                self.commentField.text = nil
                 self.scrollView.mj_header?.beginRefreshing()
             }
         }
@@ -306,6 +310,7 @@ class PostDetailVC: BaseVC {
         }
         
         let textFiled = UITextField()
+        commentField = textFiled
         bottomCotainer.addSubview(textFiled)
         textFiled.snp.makeConstraints { make in
             make.top.equalTo(8)

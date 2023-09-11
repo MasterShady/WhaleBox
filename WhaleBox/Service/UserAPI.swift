@@ -16,38 +16,19 @@ let kUserMakeOrder = Notification(name: .init("kUserMakeOrder"), object: nil)
 
 let userService = MoyaProvider<UserAPI>(endpointClosure:MoyaProvider.customEndpointMapping, plugins:moyaPlugins)
 
-public enum OrderStatus: Int, HandyJSONEnum{
-    
-    case all = -1
-    case waitToP = 0
-    case inRenting = 1
-    case completed = 2
-    case cancelled = 5
-    
-    var statusText : String{
-        switch self {
-        case .waitToP:
-            return "进行中"
-        case .inRenting:
-            return "进行中"
-        case .completed:
-            return "已完成"
-        case .cancelled:
-            return "已取消"
-        case .all:
-            return "全部"
-        }
-    }
-}
 
 public enum UserAPI {
+    case collectVideoList
+    case collectVideo(json:String)
+    case deletePost(id: Int)
     case deregister
     case updateUser(nickname:String, avatar: String)
     case collectList
     case collectPost(postId:Int, collect:Bool)
-    case postList(type: Int = 0)
+    //atype 用来筛选category. type = 0 全部帖子, 1 我的帖子
+    case postList(type: Int = 0, atype: String? = nil)
     case commentList(id: Int)
-    case makePost(title:String, content:String, images:String)
+    case makePost(type:String, title:String, content:String, images:String)
     case makeComment(pid: Int, content: String)
     case getNewsList(Int)
     case login(mobile:String, passwd: String)
@@ -57,7 +38,6 @@ public enum UserAPI {
     case addAddress(uname: String, phone: String, address_area: String, address_detail:String, is_default: Bool)
     case updateAddress(id:Int ,uname: String, phone: String, address_area: String, address_detail:String, is_default: Bool)
     case makeOrder(id: Int, day: Int)
-    case getOrderList(status: OrderStatus)
     case cancelOrder(id: Int)
     case getLikes
     case getFootprints
@@ -68,7 +48,7 @@ public enum UserAPI {
 extension UserAPI: TargetType {
     public var baseURL: URL {
         switch self {
-        case .postList, .makePost, .commentList, .collectPost, .login, .register, .makeComment, .updateUser, .deregister, .collectList:
+        case .postList, .makePost, .commentList, .collectPost, .login, .register, .makeComment, .updateUser, .deregister, .collectList, .deletePost, .collectVideoList:
             return URL(string:kPostHost)!
         default:
             return URL(string:kRequestHost)!
@@ -77,6 +57,12 @@ extension UserAPI: TargetType {
     
     public var path: String {
         switch self {
+        case .collectVideoList:
+            return "getVideoList"
+        case .collectVideo:
+            return "saveVideo"
+        case .deletePost:
+            return "delArticle"
         case .deregister:
             return "delUser"
         case .updateUser:
@@ -107,8 +93,6 @@ extension UserAPI: TargetType {
             return "updateAddress"
         case .makeOrder:
             return "addOrder"
-        case .getOrderList:
-            return "orderList"
         case .cancelOrder:
             return "orderCancel"
         case .getLikes:
@@ -127,6 +111,12 @@ extension UserAPI: TargetType {
 
     public var task: Task {
         switch self {
+        case .collectVideoList:
+            return .requestPlain
+        case .collectVideo(let json):
+            return .requestParameters(parameters: ["video_info":json], encoding: JSONEncoding.default)
+        case .deletePost(let id):
+            return .requestParameters(parameters: ["id":id], encoding: JSONEncoding.default)
         case .deregister:
             return .requestPlain
         case .updateUser(let nickname, let avatar):
@@ -138,12 +128,16 @@ extension UserAPI: TargetType {
         case .collectPost(let postId, let collect):
             let collectInt = collect ? 1 : 0
             return .requestParameters(parameters: ["article_id":postId, "status": collectInt], encoding: JSONEncoding.default)
-        case .postList(let type):
-            return .requestParameters(parameters: ["type":type], encoding: JSONEncoding.default)
+        case .postList(let type, let atype):
+            var params = ["type":type] as [String: Any]
+            if let atype = atype{
+                params["atype"] = atype
+            }
+            return .requestParameters(parameters: params, encoding: JSONEncoding.default)
         case .commentList(let id):
             return .requestParameters(parameters: ["id": id], encoding: JSONEncoding.default)
-        case .makePost(let title, content: let content, images: let images):
-            return .requestParameters(parameters: ["title": title, "content":content, "images": images], encoding: JSONEncoding.default)
+        case .makePost(let type, let title, content: let content, images: let images):
+            return .requestParameters(parameters: ["title": title, "content":content, "images": images, "type": type], encoding: JSONEncoding.default)
         case .getNewsList(let type):
             return .requestParameters(parameters: ["type": type], encoding: JSONEncoding.default)
         case .login(let userName, let passwd):
@@ -181,10 +175,6 @@ extension UserAPI: TargetType {
                 "start_date": start_date,
                 "end_date": end_date
             ], encoding: JSONEncoding.default)
-        case .getOrderList(let status):
-            return .requestParameters(parameters: [
-                "status" : status.rawValue
-            ], encoding: JSONEncoding.default)
         case .getLikes:
             return .requestPlain
         case .like(let id):
@@ -213,14 +203,14 @@ extension UserAPI: TargetType {
 }
 
 
-class UserAccount: HandyJSON{
+struct UserAccount: HandyJSON{
     var mobile: String!
     
     var nickname: String!
-    var foot_num: Int!
-    var collect_num: Int!
-    var bill_num: Int!
-    var is_sub_merchant: Bool!
+//    var foot_num: Int!
+//    var collect_num: Int!
+//    var bill_num: Int!
+//    var is_sub_merchant: Bool!
     var uid: Int!
     var phone: String!
     var avatar: String?
@@ -228,9 +218,9 @@ class UserAccount: HandyJSON{
         avatar?.toImage() ?? .init(named: "user_avatar")!
     }
 
-    required init(){
-        
-    }
+//    required init(){
+//
+//    }
     
 }
 

@@ -44,7 +44,7 @@ class DFTabbar: UITabBar {
         
         let tabBarButtonClass: AnyClass? = NSClassFromString("UITabBarButton")
         var index = 0
-        let tabWidth = bounds.size.width / 3.0
+        let tabWidth = bounds.size.width / 5
         
         for view in subviews {
             if view.isKind(of: tabBarButtonClass!) {
@@ -54,7 +54,7 @@ class DFTabbar: UITabBar {
                 view.frame = rect
                 index += 1
                 
-                if index == 1 {
+                if index == 2 {
                     index += 1
                 }
             }

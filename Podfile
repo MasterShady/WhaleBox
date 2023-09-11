@@ -26,6 +26,18 @@ target 'WhaleBox' do
   pod 'MBProgressHUD'
   pod 'ETNavBarTransparent'
   pod 'CLImagePickerTool'
+  pod 'ThinkingSDK','2.8.3.2'
+  pod 'GKVideoScrollView'
+  pod 'AFNetworking'
+  pod 'Masonry'
+  pod 'ZFPlayer/AVPlayer'
+  pod 'GKSliderView'
+  pod 'JXCategoryView'
+  pod 'SDWebImage'
+  pod 'SDWebImageWebPCoder'
+  pod 'GKNavigationBar'
+  #pod 'YYModel'
+  
 end
 
 post_install do |installer|

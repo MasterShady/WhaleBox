@@ -43,6 +43,13 @@ class HomeVC: BaseVC {
         self.navBarBgAlpha = 0
         userHeaderContainerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: JXTableHeaderViewHeight))
         userHeaderView = PagingViewTableHeaderView(frame: userHeaderContainerView.bounds)
+        userHeaderView.clickBannerHandler = { [weak self] in
+            guard let self = self else {return}
+            let news = self.strategies.first { news in
+                news.id == 176
+            }
+            self.navigationController?.pushViewController(NewsDetailVC(news: news!), animated: true)
+        }
         userHeaderContainerView.addSubview(userHeaderView)
         
         //segmentedViewDataSource一定要通过属性强持有！！！！！！！！！

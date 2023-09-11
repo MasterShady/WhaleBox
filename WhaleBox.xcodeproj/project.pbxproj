@@ -7,6 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB1051622AAEB35A009E046B /* DeviceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1051612AAEB35A009E046B /* DeviceHelper.swift */; };
+		EB1051662AAEBBED009E046B /* GKDYPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1051642AAEBBED009E046B /* GKDYPlayerViewController.m */; };
+		EB1051692AAEBC28009E046B /* GKDYVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1051682AAEBC27009E046B /* GKDYVideoModel.m */; };
+		EB10516F2AAEBCC3009E046B /* GKDYPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EB10516C2AAEBCC3009E046B /* GKDYPlayerManager.m */; };
+		EB1051722AAEBD23009E046B /* GKBallLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1051702AAEBD22009E046B /* GKBallLoadingView.m */; };
+		EB1051752AAEBD5F009E046B /* GKDYUserVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1051742AAEBD5F009E046B /* GKDYUserVideoModel.m */; };
+		EB1051782AAEBD81009E046B /* GKDYVideoScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1051762AAEBD81009E046B /* GKDYVideoScrollView.m */; };
+		EB10517B2AAEBD97009E046B /* GKDYVideoPortraitView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1051792AAEBD97009E046B /* GKDYVideoPortraitView.m */; };
+		EB10517F2AAEC139009E046B /* GKDYVideoSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = EB10517E2AAEC139009E046B /* GKDYVideoSlider.m */; };
+		EB1051822AAEC1F4009E046B /* GKLikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1051802AAEC1F4009E046B /* GKLikeView.m */; };
+		EB1051852AAEC2A2009E046B /* GKDYPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1051842AAEC2A2009E046B /* GKDYPanGestureRecognizer.m */; };
+		EB1051882AAEC34F009E046B /* GKDYVideoItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1051862AAEC34F009E046B /* GKDYVideoItemButton.m */; };
+		EB10518B2AAEC362009E046B /* GKDoubleLikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB10518A2AAEC362009E046B /* GKDoubleLikeView.m */; };
+		EB10518E2AAEC44E009E046B /* GKDYVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB10518C2AAEC44E009E046B /* GKDYVideoCell.m */; };
+		EB1051912AAEC466009E046B /* GKDYVideoLandscapeView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1051902AAEC466009E046B /* GKDYVideoLandscapeView.m */; };
+		EB1051942AAEC47F009E046B /* GKRotationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1051932AAEC47E009E046B /* GKRotationManager.m */; };
+		EB1051972AAEC495009E046B /* GKLandscapeWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1051962AAEC495009E046B /* GKLandscapeWindow.m */; };
+		EB10519A2AAEC4AD009E046B /* GKLandscapeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1051982AAEC4AD009E046B /* GKLandscapeViewController.m */; };
+		EB10519F2AAEC4C3009E046B /* GKRotationManager_iOS_16_Later.m in Sources */ = {isa = PBXBuildFile; fileRef = EB10519C2AAEC4C2009E046B /* GKRotationManager_iOS_16_Later.m */; };
+		EB1051A02AAEC4C3009E046B /* GKRotationManager_iOS_9_15.m in Sources */ = {isa = PBXBuildFile; fileRef = EB10519D2AAEC4C2009E046B /* GKRotationManager_iOS_9_15.m */; };
+		EB1051A32AAEC4D9009E046B /* GKDYTools.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1051A22AAEC4D9009E046B /* GKDYTools.m */; };
+		EB1051A62AAEC4EB009E046B /* GKDYVideoPortraitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1051A52AAEC4EB009E046B /* GKDYVideoPortraitCell.m */; };
+		EB1051A92AAEC502009E046B /* GKDYVideoLandscapeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1051A82AAEC501009E046B /* GKDYVideoLandscapeCell.m */; };
+		EB1051AC2AAEC614009E046B /* GKDYVideoMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1051AB2AAEC614009E046B /* GKDYVideoMaskView.m */; };
+		EB1051AF2AAEC62C009E046B /* UIButton+GKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1051AE2AAEC62C009E046B /* UIButton+GKCategory.m */; };
+		EB1051B22AAEC63F009E046B /* GKDYVideoStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1051B12AAEC63E009E046B /* GKDYVideoStatusBar.m */; };
+		EB1051B52AAEC651009E046B /* GKDYVideoPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1051B32AAEC651009E046B /* GKDYVideoPreviewView.m */; };
+		EB1051B82AAEC663009E046B /* GKDYVideoFullscreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1051B72AAEC663009E046B /* GKDYVideoFullscreenView.m */; };
+		EB1051BB2AAEC69C009E046B /* GKDYHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1051B92AAEC69C009E046B /* GKDYHomeViewController.m */; };
+		EB1051BE2AAEC6E7009E046B /* GKDYTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1051BD2AAEC6E7009E046B /* GKDYTitleView.m */; };
+		EB1051C12AAEC700009E046B /* GKDYScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1051BF2AAEC6FF009E046B /* GKDYScrollView.m */; };
+		EB27DEBE2AAEF8B6001DDBB9 /* CircleCatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB27DEBD2AAEF8B6001DDBB9 /* CircleCatVC.swift */; };
+		EB27DEC02AAF1758001DDBB9 /* OCBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB27DEBF2AAF1758001DDBB9 /* OCBridge.swift */; };
+		EB27DEC22AAF313D001DDBB9 /* VideoCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB27DEC12AAF313D001DDBB9 /* VideoCollectionVC.swift */; };
 		EB362ED52AA576710012D038 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB362ED42AA576710012D038 /* AppDelegate.swift */; };
 		EB362ED92AA576710012D038 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB362ED82AA576710012D038 /* ViewController.swift */; };
 		EB362EDC2AA576710012D038 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB362EDA2AA576710012D038 /* Main.storyboard */; };
@@ -75,7 +109,7 @@
 		EB362F9B2AA576C50012D038 /* NavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB362F942AA576C40012D038 /* NavVC.swift */; };
 		EB362F9D2AA5796B0012D038 /* DFTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB362F9C2AA5796B0012D038 /* DFTabbar.swift */; };
 		EB362FA12AA5812E0012D038 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB362FA02AA5812E0012D038 /* HomeVC.swift */; };
-		EB362FA32AA5813D0012D038 /* CircleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB362FA22AA5813D0012D038 /* CircleVC.swift */; };
+		EB362FA32AA5813D0012D038 /* PostListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB362FA22AA5813D0012D038 /* PostListVC.swift */; };
 		EB362FA62AA5B8E70012D038 /* PagingViewTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB362FA52AA5B8E70012D038 /* PagingViewTableHeaderView.swift */; };
 		EB362FA82AA5B9AE0012D038 /* PagingListBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB362FA72AA5B9AE0012D038 /* PagingListBaseView.swift */; };
 		EB362FAA2AA5B9E90012D038 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB362FA92AA5B9E90012D038 /* NewsCell.swift */; };
@@ -102,6 +136,71 @@
 		9C6B4A2895D0A6679716AF6F /* Pods-WhaleBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhaleBox.release.xcconfig"; path = "Target Support Files/Pods-WhaleBox/Pods-WhaleBox.release.xcconfig"; sourceTree = "<group>"; };
 		C4ACCC6E27D046A04476E5D2 /* Pods-WhaleBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhaleBox.debug.xcconfig"; path = "Target Support Files/Pods-WhaleBox/Pods-WhaleBox.debug.xcconfig"; sourceTree = "<group>"; };
 		DAF6839158C8CF6CC974E950 /* Pods_WhaleBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhaleBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB1051612AAEB35A009E046B /* DeviceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceHelper.swift; sourceTree = "<group>"; };
+		EB1051642AAEBBED009E046B /* GKDYPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYPlayerViewController.m; sourceTree = "<group>"; };
+		EB1051652AAEBBED009E046B /* GKDYPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDYPlayerViewController.h; sourceTree = "<group>"; };
+		EB1051672AAEBC27009E046B /* GKDYVideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDYVideoModel.h; sourceTree = "<group>"; };
+		EB1051682AAEBC27009E046B /* GKDYVideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYVideoModel.m; sourceTree = "<group>"; };
+		EB10516C2AAEBCC3009E046B /* GKDYPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYPlayerManager.m; sourceTree = "<group>"; };
+		EB10516D2AAEBCC3009E046B /* GKDYPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDYPlayerManager.h; sourceTree = "<group>"; };
+		EB1051702AAEBD22009E046B /* GKBallLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKBallLoadingView.m; sourceTree = "<group>"; };
+		EB1051712AAEBD23009E046B /* GKBallLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKBallLoadingView.h; sourceTree = "<group>"; };
+		EB1051732AAEBD5E009E046B /* GKDYUserVideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDYUserVideoModel.h; sourceTree = "<group>"; };
+		EB1051742AAEBD5F009E046B /* GKDYUserVideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYUserVideoModel.m; sourceTree = "<group>"; };
+		EB1051762AAEBD81009E046B /* GKDYVideoScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYVideoScrollView.m; sourceTree = "<group>"; };
+		EB1051772AAEBD81009E046B /* GKDYVideoScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDYVideoScrollView.h; sourceTree = "<group>"; };
+		EB1051792AAEBD97009E046B /* GKDYVideoPortraitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYVideoPortraitView.m; sourceTree = "<group>"; };
+		EB10517A2AAEBD97009E046B /* GKDYVideoPortraitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDYVideoPortraitView.h; sourceTree = "<group>"; };
+		EB10517C2AAEBDD2009E046B /* WhaleBox-Prefix-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WhaleBox-Prefix-Header.h"; sourceTree = "<group>"; };
+		EB10517D2AAEC139009E046B /* GKDYVideoSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDYVideoSlider.h; sourceTree = "<group>"; };
+		EB10517E2AAEC139009E046B /* GKDYVideoSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYVideoSlider.m; sourceTree = "<group>"; };
+		EB1051802AAEC1F4009E046B /* GKLikeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKLikeView.m; sourceTree = "<group>"; };
+		EB1051812AAEC1F4009E046B /* GKLikeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKLikeView.h; sourceTree = "<group>"; };
+		EB1051832AAEC2A2009E046B /* GKDYPanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDYPanGestureRecognizer.h; sourceTree = "<group>"; };
+		EB1051842AAEC2A2009E046B /* GKDYPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYPanGestureRecognizer.m; sourceTree = "<group>"; };
+		EB1051862AAEC34F009E046B /* GKDYVideoItemButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYVideoItemButton.m; sourceTree = "<group>"; };
+		EB1051872AAEC34F009E046B /* GKDYVideoItemButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDYVideoItemButton.h; sourceTree = "<group>"; };
+		EB1051892AAEC361009E046B /* GKDoubleLikeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDoubleLikeView.h; sourceTree = "<group>"; };
+		EB10518A2AAEC362009E046B /* GKDoubleLikeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDoubleLikeView.m; sourceTree = "<group>"; };
+		EB10518C2AAEC44E009E046B /* GKDYVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYVideoCell.m; sourceTree = "<group>"; };
+		EB10518D2AAEC44E009E046B /* GKDYVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDYVideoCell.h; sourceTree = "<group>"; };
+		EB10518F2AAEC466009E046B /* GKDYVideoLandscapeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDYVideoLandscapeView.h; sourceTree = "<group>"; };
+		EB1051902AAEC466009E046B /* GKDYVideoLandscapeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYVideoLandscapeView.m; sourceTree = "<group>"; };
+		EB1051922AAEC47E009E046B /* GKRotationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKRotationManager.h; sourceTree = "<group>"; };
+		EB1051932AAEC47E009E046B /* GKRotationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKRotationManager.m; sourceTree = "<group>"; };
+		EB1051952AAEC495009E046B /* GKLandscapeWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKLandscapeWindow.h; sourceTree = "<group>"; };
+		EB1051962AAEC495009E046B /* GKLandscapeWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKLandscapeWindow.m; sourceTree = "<group>"; };
+		EB1051982AAEC4AD009E046B /* GKLandscapeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKLandscapeViewController.m; sourceTree = "<group>"; };
+		EB1051992AAEC4AD009E046B /* GKLandscapeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKLandscapeViewController.h; sourceTree = "<group>"; };
+		EB10519B2AAEC4C2009E046B /* GKRotationManager_iOS_9_15.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKRotationManager_iOS_9_15.h; sourceTree = "<group>"; };
+		EB10519C2AAEC4C2009E046B /* GKRotationManager_iOS_16_Later.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKRotationManager_iOS_16_Later.m; sourceTree = "<group>"; };
+		EB10519D2AAEC4C2009E046B /* GKRotationManager_iOS_9_15.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKRotationManager_iOS_9_15.m; sourceTree = "<group>"; };
+		EB10519E2AAEC4C3009E046B /* GKRotationManager_iOS_16_Later.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKRotationManager_iOS_16_Later.h; sourceTree = "<group>"; };
+		EB1051A12AAEC4D9009E046B /* GKDYTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDYTools.h; sourceTree = "<group>"; };
+		EB1051A22AAEC4D9009E046B /* GKDYTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYTools.m; sourceTree = "<group>"; };
+		EB1051A42AAEC4EB009E046B /* GKDYVideoPortraitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDYVideoPortraitCell.h; sourceTree = "<group>"; };
+		EB1051A52AAEC4EB009E046B /* GKDYVideoPortraitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYVideoPortraitCell.m; sourceTree = "<group>"; };
+		EB1051A72AAEC501009E046B /* GKDYVideoLandscapeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDYVideoLandscapeCell.h; sourceTree = "<group>"; };
+		EB1051A82AAEC501009E046B /* GKDYVideoLandscapeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYVideoLandscapeCell.m; sourceTree = "<group>"; };
+		EB1051AA2AAEC614009E046B /* GKDYVideoMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDYVideoMaskView.h; sourceTree = "<group>"; };
+		EB1051AB2AAEC614009E046B /* GKDYVideoMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYVideoMaskView.m; sourceTree = "<group>"; };
+		EB1051AD2AAEC62C009E046B /* UIButton+GKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+GKCategory.h"; sourceTree = "<group>"; };
+		EB1051AE2AAEC62C009E046B /* UIButton+GKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+GKCategory.m"; sourceTree = "<group>"; };
+		EB1051B02AAEC63E009E046B /* GKDYVideoStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDYVideoStatusBar.h; sourceTree = "<group>"; };
+		EB1051B12AAEC63E009E046B /* GKDYVideoStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYVideoStatusBar.m; sourceTree = "<group>"; };
+		EB1051B32AAEC651009E046B /* GKDYVideoPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYVideoPreviewView.m; sourceTree = "<group>"; };
+		EB1051B42AAEC651009E046B /* GKDYVideoPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDYVideoPreviewView.h; sourceTree = "<group>"; };
+		EB1051B62AAEC663009E046B /* GKDYVideoFullscreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDYVideoFullscreenView.h; sourceTree = "<group>"; };
+		EB1051B72AAEC663009E046B /* GKDYVideoFullscreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYVideoFullscreenView.m; sourceTree = "<group>"; };
+		EB1051B92AAEC69C009E046B /* GKDYHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYHomeViewController.m; sourceTree = "<group>"; };
+		EB1051BA2AAEC69C009E046B /* GKDYHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDYHomeViewController.h; sourceTree = "<group>"; };
+		EB1051BC2AAEC6E6009E046B /* GKDYTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDYTitleView.h; sourceTree = "<group>"; };
+		EB1051BD2AAEC6E7009E046B /* GKDYTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYTitleView.m; sourceTree = "<group>"; };
+		EB1051BF2AAEC6FF009E046B /* GKDYScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDYScrollView.m; sourceTree = "<group>"; };
+		EB1051C02AAEC700009E046B /* GKDYScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDYScrollView.h; sourceTree = "<group>"; };
+		EB27DEBD2AAEF8B6001DDBB9 /* CircleCatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleCatVC.swift; sourceTree = "<group>"; };
+		EB27DEBF2AAF1758001DDBB9 /* OCBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCBridge.swift; sourceTree = "<group>"; };
+		EB27DEC12AAF313D001DDBB9 /* VideoCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionVC.swift; sourceTree = "<group>"; };
 		EB362ED12AA576710012D038 /* WhaleBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhaleBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB362ED42AA576710012D038 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB362ED82AA576710012D038 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -180,7 +279,7 @@
 		EB362F942AA576C40012D038 /* NavVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavVC.swift; sourceTree = "<group>"; };
 		EB362F9C2AA5796B0012D038 /* DFTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFTabbar.swift; sourceTree = "<group>"; };
 		EB362FA02AA5812E0012D038 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
-		EB362FA22AA5813D0012D038 /* CircleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleVC.swift; sourceTree = "<group>"; };
+		EB362FA22AA5813D0012D038 /* PostListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListVC.swift; sourceTree = "<group>"; };
 		EB362FA42AA583800012D038 /* WhaleBox-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WhaleBox-Bridging-Header.h"; sourceTree = "<group>"; };
 		EB362FA52AA5B8E70012D038 /* PagingViewTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingViewTableHeaderView.swift; sourceTree = "<group>"; };
 		EB362FA72AA5B9AE0012D038 /* PagingListBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingListBaseView.swift; sourceTree = "<group>"; };
@@ -232,6 +331,73 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EB1051632AAEBBE3009E046B /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				EB1051C02AAEC700009E046B /* GKDYScrollView.h */,
+				EB1051BF2AAEC6FF009E046B /* GKDYScrollView.m */,
+				EB1051BC2AAEC6E6009E046B /* GKDYTitleView.h */,
+				EB1051BD2AAEC6E7009E046B /* GKDYTitleView.m */,
+				EB1051BA2AAEC69C009E046B /* GKDYHomeViewController.h */,
+				EB1051B92AAEC69C009E046B /* GKDYHomeViewController.m */,
+				EB1051B62AAEC663009E046B /* GKDYVideoFullscreenView.h */,
+				EB1051B72AAEC663009E046B /* GKDYVideoFullscreenView.m */,
+				EB1051B42AAEC651009E046B /* GKDYVideoPreviewView.h */,
+				EB1051B32AAEC651009E046B /* GKDYVideoPreviewView.m */,
+				EB1051B02AAEC63E009E046B /* GKDYVideoStatusBar.h */,
+				EB1051B12AAEC63E009E046B /* GKDYVideoStatusBar.m */,
+				EB1051AD2AAEC62C009E046B /* UIButton+GKCategory.h */,
+				EB1051AE2AAEC62C009E046B /* UIButton+GKCategory.m */,
+				EB1051AA2AAEC614009E046B /* GKDYVideoMaskView.h */,
+				EB1051AB2AAEC614009E046B /* GKDYVideoMaskView.m */,
+				EB1051A42AAEC4EB009E046B /* GKDYVideoPortraitCell.h */,
+				EB1051A52AAEC4EB009E046B /* GKDYVideoPortraitCell.m */,
+				EB1051A12AAEC4D9009E046B /* GKDYTools.h */,
+				EB1051A22AAEC4D9009E046B /* GKDYTools.m */,
+				EB10519B2AAEC4C2009E046B /* GKRotationManager_iOS_9_15.h */,
+				EB10519D2AAEC4C2009E046B /* GKRotationManager_iOS_9_15.m */,
+				EB10519E2AAEC4C3009E046B /* GKRotationManager_iOS_16_Later.h */,
+				EB10519C2AAEC4C2009E046B /* GKRotationManager_iOS_16_Later.m */,
+				EB1051992AAEC4AD009E046B /* GKLandscapeViewController.h */,
+				EB1051982AAEC4AD009E046B /* GKLandscapeViewController.m */,
+				EB1051952AAEC495009E046B /* GKLandscapeWindow.h */,
+				EB1051962AAEC495009E046B /* GKLandscapeWindow.m */,
+				EB1051922AAEC47E009E046B /* GKRotationManager.h */,
+				EB1051932AAEC47E009E046B /* GKRotationManager.m */,
+				EB10518F2AAEC466009E046B /* GKDYVideoLandscapeView.h */,
+				EB1051902AAEC466009E046B /* GKDYVideoLandscapeView.m */,
+				EB1051A72AAEC501009E046B /* GKDYVideoLandscapeCell.h */,
+				EB1051A82AAEC501009E046B /* GKDYVideoLandscapeCell.m */,
+				EB10518D2AAEC44E009E046B /* GKDYVideoCell.h */,
+				EB10518C2AAEC44E009E046B /* GKDYVideoCell.m */,
+				EB1051892AAEC361009E046B /* GKDoubleLikeView.h */,
+				EB10518A2AAEC362009E046B /* GKDoubleLikeView.m */,
+				EB1051872AAEC34F009E046B /* GKDYVideoItemButton.h */,
+				EB1051862AAEC34F009E046B /* GKDYVideoItemButton.m */,
+				EB1051832AAEC2A2009E046B /* GKDYPanGestureRecognizer.h */,
+				EB1051842AAEC2A2009E046B /* GKDYPanGestureRecognizer.m */,
+				EB1051812AAEC1F4009E046B /* GKLikeView.h */,
+				EB1051802AAEC1F4009E046B /* GKLikeView.m */,
+				EB10517D2AAEC139009E046B /* GKDYVideoSlider.h */,
+				EB10517E2AAEC139009E046B /* GKDYVideoSlider.m */,
+				EB10517A2AAEBD97009E046B /* GKDYVideoPortraitView.h */,
+				EB1051792AAEBD97009E046B /* GKDYVideoPortraitView.m */,
+				EB1051772AAEBD81009E046B /* GKDYVideoScrollView.h */,
+				EB1051762AAEBD81009E046B /* GKDYVideoScrollView.m */,
+				EB1051732AAEBD5E009E046B /* GKDYUserVideoModel.h */,
+				EB1051742AAEBD5F009E046B /* GKDYUserVideoModel.m */,
+				EB10516D2AAEBCC3009E046B /* GKDYPlayerManager.h */,
+				EB10516C2AAEBCC3009E046B /* GKDYPlayerManager.m */,
+				EB1051672AAEBC27009E046B /* GKDYVideoModel.h */,
+				EB1051682AAEBC27009E046B /* GKDYVideoModel.m */,
+				EB1051652AAEBBED009E046B /* GKDYPlayerViewController.h */,
+				EB1051642AAEBBED009E046B /* GKDYPlayerViewController.m */,
+				EB1051712AAEBD23009E046B /* GKBallLoadingView.h */,
+				EB1051702AAEBD22009E046B /* GKBallLoadingView.m */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
 		EB362EC82AA576710012D038 = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +419,7 @@
 		EB362ED32AA576710012D038 /* WhaleBox */ = {
 			isa = PBXGroup;
 			children = (
+				EB1051632AAEBBE3009E046B /* Video */,
 				EBD886282AA9F66100286C9F /* Mine */,
 				EB362FCA2AA865130012D038 /* Login */,
 				EB362FB82AA73EE60012D038 /* Service */,
@@ -267,6 +434,7 @@
 				EB362EDF2AA576720012D038 /* LaunchScreen.storyboard */,
 				EB362EE22AA576720012D038 /* Info.plist */,
 				EB362FA42AA583800012D038 /* WhaleBox-Bridging-Header.h */,
+				EB10517C2AAEBDD2009E046B /* WhaleBox-Prefix-Header.h */,
 			);
 			path = WhaleBox;
 			sourceTree = "<group>";
@@ -274,6 +442,7 @@
 		EB362EE82AA576AC0012D038 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				EB1051612AAEB35A009E046B /* DeviceHelper.swift */,
 				EB362FC32AA742080012D038 /* AES.swift */,
 				EB362EE92AA576AC0012D038 /* Vendors */,
 				EB362EF22AA576AC0012D038 /* Extension */,
@@ -288,6 +457,7 @@
 				EB362F3D2AA576AD0012D038 /* CancelaleTimer.swift */,
 				EB362F442AA576AD0012D038 /* Aspects.m */,
 				EB362F452AA576AD0012D038 /* RC4Tool.m */,
+				EB27DEBF2AAF1758001DDBB9 /* OCBridge.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -462,9 +632,10 @@
 		EB362F9F2AA5811B0012D038 /* Circle */ = {
 			isa = PBXGroup;
 			children = (
-				EB362FA22AA5813D0012D038 /* CircleVC.swift */,
+				EB362FA22AA5813D0012D038 /* PostListVC.swift */,
 				EB362FCF2AA86E370012D038 /* CreatePostVC.swift */,
 				EB362FD12AA9C3B50012D038 /* PostDetailVC.swift */,
+				EB27DEBD2AAEF8B6001DDBB9 /* CircleCatVC.swift */,
 			);
 			path = Circle;
 			sourceTree = "<group>";
@@ -511,6 +682,7 @@
 				EBD886292AA9F67600286C9F /* MineVC.swift */,
 				EBD8862B2AAB105200286C9F /* MyCollectionVC.swift */,
 				EBD8862D2AAB105900286C9F /* MyPostVC.swift */,
+				EB27DEC12AAF313D001DDBB9 /* VideoCollectionVC.swift */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -635,15 +807,24 @@
 				EB362FD02AA86E380012D038 /* CreatePostVC.swift in Sources */,
 				EB362FAA2AA5B9E90012D038 /* NewsCell.swift in Sources */,
 				EB362FC12AA73EE60012D038 /* Rc4.swift in Sources */,
+				EB1051AC2AAEC614009E046B /* GKDYVideoMaskView.m in Sources */,
 				EB362ED92AA576710012D038 /* ViewController.swift in Sources */,
+				EB10519A2AAEC4AD009E046B /* GKLandscapeViewController.m in Sources */,
 				EB362FA12AA5812E0012D038 /* HomeVC.swift in Sources */,
 				EB362FAF2AA6D1FF0012D038 /* PostContentCell.swift in Sources */,
+				EB1051B22AAEC63F009E046B /* GKDYVideoStatusBar.m in Sources */,
 				EB362F542AA576AD0012D038 /* NSObject++.swift in Sources */,
+				EB1051822AAEC1F4009E046B /* GKLikeView.m in Sources */,
+				EB27DEBE2AAEF8B6001DDBB9 /* CircleCatVC.swift in Sources */,
 				EB362FC72AA747470012D038 /* News.swift in Sources */,
+				EB10517B2AAEBD97009E046B /* GKDYVideoPortraitView.m in Sources */,
+				EB1051852AAEC2A2009E046B /* GKDYPanGestureRecognizer.m in Sources */,
 				EB362FC92AA82ABB0012D038 /* NewsDetailVC.swift in Sources */,
 				EB362F692AA576AD0012D038 /* UITableView+Chain.swift in Sources */,
 				EB362F812AA576AD0012D038 /* GEPopTool.swift in Sources */,
+				EB1051972AAEC495009E046B /* GKLandscapeWindow.m in Sources */,
 				EB362ED52AA576710012D038 /* AppDelegate.swift in Sources */,
+				EB10519F2AAEC4C3009E046B /* GKRotationManager_iOS_16_Later.m in Sources */,
 				EB362F9B2AA576C50012D038 /* NavVC.swift in Sources */,
 				EB362F642AA576AD0012D038 /* BaseView.swift in Sources */,
 				EB362F5E2AA576AD0012D038 /* NotificationCenter++.swift in Sources */,
@@ -651,26 +832,41 @@
 				EB362F5B2AA576AD0012D038 /* Image++.swift in Sources */,
 				EB362F992AA576C50012D038 /* BaseVC.swift in Sources */,
 				EB362F5C2AA576AD0012D038 /* DateExtension.swift in Sources */,
+				EB1051692AAEBC28009E046B /* GKDYVideoModel.m in Sources */,
 				EB362F802AA576AD0012D038 /* UIButton+SYImagePosition.m in Sources */,
+				EB10518B2AAEC362009E046B /* GKDoubleLikeView.m in Sources */,
 				EB362F6A2AA576AD0012D038 /* UILabel+Chain.swift in Sources */,
+				EB27DEC02AAF1758001DDBB9 /* OCBridge.swift in Sources */,
+				EB1051A62AAEC4EB009E046B /* GKDYVideoPortraitCell.m in Sources */,
 				EB362F5A2AA576AD0012D038 /* UIColor++.swift in Sources */,
 				EB362F6F2AA576AD0012D038 /* UITapGestureRecognizer+Chain.swift in Sources */,
 				EB362F592AA576AD0012D038 /* FoundationExtension.swift in Sources */,
+				EB1051752AAEBD5F009E046B /* GKDYUserVideoModel.m in Sources */,
 				EB362F562AA576AD0012D038 /* FileManagerExtension.swift in Sources */,
 				EB362F842AA576AD0012D038 /* CancelaleTimer.swift in Sources */,
+				EB1051A02AAEC4C3009E046B /* GKRotationManager_iOS_9_15.m in Sources */,
+				EB1051C12AAEC700009E046B /* GKDYScrollView.m in Sources */,
 				EB362F502AA576AD0012D038 /* UICollectionView++.swift in Sources */,
 				EBD8862E2AAB105900286C9F /* MyPostVC.swift in Sources */,
+				EB1051882AAEC34F009E046B /* GKDYVideoItemButton.m in Sources */,
 				EB362FD22AA9C3B60012D038 /* PostDetailVC.swift in Sources */,
+				EB1051912AAEC466009E046B /* GKDYVideoLandscapeView.m in Sources */,
+				EB10518E2AAEC44E009E046B /* GKDYVideoCell.m in Sources */,
 				EB362F4A2AA576AD0012D038 /* AEBaseAlertView.swift in Sources */,
 				EB362F832AA576AD0012D038 /* SYPopTool.m in Sources */,
 				EB362FA62AA5B8E70012D038 /* PagingViewTableHeaderView.swift in Sources */,
 				EB362F662AA576AD0012D038 /* Associate.swift in Sources */,
 				EB362F682AA576AD0012D038 /* UIImage+Chain.swift in Sources */,
 				EB362F822AA576AD0012D038 /* SYBasePopView.m in Sources */,
+				EB1051A32AAEC4D9009E046B /* GKDYTools.m in Sources */,
 				EB362F622AA576AD0012D038 /* SinglePicker.swift in Sources */,
 				EB362FBE2AA73EE60012D038 /* UserAPI.swift in Sources */,
+				EB1051B52AAEC651009E046B /* GKDYVideoPreviewView.m in Sources */,
 				EB362F472AA576AD0012D038 /* AEAlertAction.swift in Sources */,
+				EB1051662AAEBBED009E046B /* GKDYPlayerViewController.m in Sources */,
 				EB362F532AA576AD0012D038 /* NSAttributedString+Extensions.swift in Sources */,
+				EB1051A92AAEC502009E046B /* GKDYVideoLandscapeCell.m in Sources */,
+				EB1051782AAEBD81009E046B /* GKDYVideoScrollView.m in Sources */,
 				EB362F582AA576AD0012D038 /* UIView++.swift in Sources */,
 				EB362F4E2AA576AD0012D038 /* String++.swift in Sources */,
 				EB362F952AA576C50012D038 /* Constants.swift in Sources */,
@@ -679,17 +875,23 @@
 				EB362F712AA576AD0012D038 /* UICollectionView+Chain.swift in Sources */,
 				EB362F722AA576AD0012D038 /* UIScrollView+Chain.swift in Sources */,
 				EB362F4B2AA576AD0012D038 /* AutoProgressHUD.swift in Sources */,
+				EB1051622AAEB35A009E046B /* DeviceHelper.swift in Sources */,
 				EB362F632AA576AD0012D038 /* MonthPicker.swift in Sources */,
 				EB76B7B12AAE2D5100F7D54C /* SearchVC.swift in Sources */,
 				EB362FBF2AA73EE60012D038 /* Moya++.swift in Sources */,
+				EB1051B82AAEC663009E046B /* GKDYVideoFullscreenView.m in Sources */,
 				EBD8862C2AAB105200286C9F /* MyCollectionVC.swift in Sources */,
 				EB362F5F2AA576AD0012D038 /* BasePicker.swift in Sources */,
 				EBD8862A2AA9F67600286C9F /* MineVC.swift in Sources */,
 				EB362F962AA576C50012D038 /* TabbarVC.swift in Sources */,
 				EB362FA82AA5B9AE0012D038 /* PagingListBaseView.swift in Sources */,
+				EB10517F2AAEC139009E046B /* GKDYVideoSlider.m in Sources */,
+				EB1051BB2AAEC69C009E046B /* GKDYHomeViewController.m in Sources */,
 				EB362F4D2AA576AD0012D038 /* UIImage++.swift in Sources */,
 				EB362FCD2AA865130012D038 /* RegisterVC.swift in Sources */,
+				EB1051BE2AAEC6E7009E046B /* GKDYTitleView.m in Sources */,
 				EB362FC42AA742080012D038 /* AES.swift in Sources */,
+				EB1051942AAEC47F009E046B /* GKRotationManager.m in Sources */,
 				EB362F552AA576AD0012D038 /* UITableView++.swift in Sources */,
 				EB362F4F2AA576AD0012D038 /* UIFont++.swift in Sources */,
 				EB362F6B2AA576AD0012D038 /* UIControl+Chain.swift in Sources */,
@@ -698,9 +900,11 @@
 				EB362F522AA576AD0012D038 /* UIButton++.swift in Sources */,
 				EB362F6E2AA576AD0012D038 /* UITextFiled+Chain.swift in Sources */,
 				EB362F7E2AA576AD0012D038 /* UIViewController+SYAdd.m in Sources */,
+				EB27DEC22AAF313D001DDBB9 /* VideoCollectionVC.swift in Sources */,
 				EB362F512AA576AD0012D038 /* UserDefault++.swift in Sources */,
 				EB362F462AA576AD0012D038 /* AETextFieldAlertView.swift in Sources */,
-				EB362FA32AA5813D0012D038 /* CircleVC.swift in Sources */,
+				EB10516F2AAEBCC3009E046B /* GKDYPlayerManager.m in Sources */,
+				EB362FA32AA5813D0012D038 /* PostListVC.swift in Sources */,
 				EB362FC02AA73EE60012D038 /* BaseAPI.swift in Sources */,
 				EB362FCE2AA865130012D038 /* LoginVC.swift in Sources */,
 				EB362F4C2AA576AD0012D038 /* UIViewController++.swift in Sources */,
@@ -708,6 +912,7 @@
 				EB362F702AA576AD0012D038 /* UIGestureRecognizer+Chain.swift in Sources */,
 				EB362F652AA576AD0012D038 /* Chain.swift in Sources */,
 				EB362F672AA576AD0012D038 /* CALayer+Chain.swift in Sources */,
+				EB1051AF2AAEC62C009E046B /* UIButton+GKCategory.m in Sources */,
 				EB362F9D2AA5796B0012D038 /* DFTabbar.swift in Sources */,
 				EB362F6C2AA576AD0012D038 /* UIButton+Chain.swift in Sources */,
 				EB362F482AA576AD0012D038 /* AEPathAnimation.swift in Sources */,
@@ -715,6 +920,7 @@
 				EB362F5D2AA576AD0012D038 /* ScrollView++.swift in Sources */,
 				EB362F572AA576AD0012D038 /* Array++.swift in Sources */,
 				EB362F6D2AA576AD0012D038 /* UIView+Chain.swift in Sources */,
+				EB1051722AAEBD23009E046B /* GKBallLoadingView.m in Sources */,
 				EB362F602AA576AD0012D038 /* DatePicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -872,9 +1078,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6475J8L3PC;
+				GCC_PREFIX_HEADER = "WhaleBox/WhaleBox-Prefix-Header.h";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WhaleBox/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "鲸鱼盒子";
+				INFOPLIST_KEY_CFBundleDisplayName = "做游趣-游友聚焦";
 				INFOPLIST_KEY_NSCameraUsageDescription = "我们需要访问您的相机，以便您拍摄照片用于自定义头像。这将允许您在应用程序中使用相机功能，方便您在我们的APP中使用个性化的头像。\n";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "我们需要访问您的相册，以便您选择照片用于自定义头像。这将允许您在应用程序中使用相册功能，方便您在我们的APP中使用个性化的头像。";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "我们需要访问您的相册，以便您选择照片用于自定义头像。这将允许您在应用程序中使用相册功能，方便您在我们的APP中使用个性化的头像。";
@@ -910,9 +1117,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6475J8L3PC;
+				GCC_PREFIX_HEADER = "WhaleBox/WhaleBox-Prefix-Header.h";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WhaleBox/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "鲸鱼盒子";
+				INFOPLIST_KEY_CFBundleDisplayName = "做游趣-游友聚焦";
 				INFOPLIST_KEY_NSCameraUsageDescription = "我们需要访问您的相机，以便您拍摄照片用于自定义头像。这将允许您在应用程序中使用相机功能，方便您在我们的APP中使用个性化的头像。\n";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "我们需要访问您的相册，以便您选择照片用于自定义头像。这将允许您在应用程序中使用相册功能，方便您在我们的APP中使用个性化的头像。";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "我们需要访问您的相册，以便您选择照片用于自定义头像。这将允许您在应用程序中使用相册功能，方便您在我们的APP中使用个性化的头像。";

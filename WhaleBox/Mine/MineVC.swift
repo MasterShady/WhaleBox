@@ -85,20 +85,49 @@ class MineVC: BaseVC {
     }
     
     func updateUserName(){
+        // 创建一个UIAlertController
+        let alertController = UIAlertController(title: "修改昵称", message: "", preferredStyle: .alert)
         
+        // 添加一个文本输入框
+        alertController.addTextField { (textField) in
+            textField.placeholder = "请输新的用户昵称"
+        }
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        let submitAction = UIAlertAction(title: "确定", style: .default) { (action) in
+            if let textField = alertController.textFields?.first {
+                if let text = textField.text {
+                    userService.request(.updateUser(nickname: text, avatar: UserStore.currentUser!.avatar ?? "")) { result in
+                        result.hj_map2 { body, error in
+                            if let error = error{
+                                error.msg.hint()
+                                return
+                            }
+                            "修改成功".hint()
+                            UserStore.currentUser?.nickname = text
+                        }
+                    }
+                }
+            }
+        }
+        alertController.addAction(submitAction)
+        
+        // 弹出警告框
+        present(alertController, animated: true, completion: nil)
     }
 
-//    override func viewWillAppear(_ animated: Bool) {
-//        self.navigationController?.setNavigationBarHidden(true, animated: true)
-//    }
-//
-//    override func viewWillDisappear(_ animated: Bool) {
-//        self.navigationController?.setNavigationBarHidden(false, animated: true)
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
     
     override func configSubViews() {
         self.title = "我的"
-        self.navBarBgAlpha = 0
         self.extendedLayoutIncludesOpaqueBars = true
         self.edgesForExtendedLayout = .all
         
@@ -108,6 +137,7 @@ class MineVC: BaseVC {
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        scrollView.contentInsetAdjustmentBehavior = .never
         
         stackView = UIStackView()
         stackView.axis = .vertical
@@ -127,7 +157,7 @@ class MineVC: BaseVC {
         
         let items = [
             ("我的收藏", { [weak self] in
-                let vc = MyCollectionVC()
+                let vc = CollectionPageVC()
                 self?.navigationController?.pushViewController(vc, animated: true)
             }),
             ("我的帖子", { [weak self] in

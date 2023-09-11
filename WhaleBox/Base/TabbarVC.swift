@@ -66,10 +66,23 @@ extension UITabBar{
     }
     
         func addChilds(){
-            let childs : [(String,String,BaseVC)] = [
+            
+            
+            let player = GKDYPlayerViewController()
+            player.tab = "youxi_new"
+            
+            let childs : [(String,String,UIViewController)] = [
                 ("home_tabbar","首页",HomeVC()),
-                ("circle_tabbar","圈子",CircleVC()),
+                ("video_tabbar","视频",player),
+                ("circle_tabbar","圈子",CircleCatVC()),
+                ("mine_tabbar","我的",MineVC())
             ]
+            
+//            if let classType = NSClassFromString("GKDYPlayerViewController") as? UIViewController.Type {
+//                // 如果成功获取到类类型，则可以使用它来创建类的实例
+//                let myObject = classType.init()
+//                childs.insert(("video_tabbar","视频",myObject),at:1)
+//            }
     
             for child in childs {
                 let image =  UIImage(named: child.0)!.byResize(to: CGSize(width: 28, height: 28))!

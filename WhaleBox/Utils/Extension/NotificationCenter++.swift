@@ -67,5 +67,8 @@ enum NotificationName: String {
     
     //本地文件刷新完成
     case localFileLoadCompleted
+    
+    case kUserChanged
+
 
 }

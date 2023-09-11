@@ -31,9 +31,9 @@ class PostModel: HandyJSON{
     
     func userAvatar(size: CGFloat = 30) -> UIImage{
         if let avatar = userInfo.avatar{
-            return avatar.toImage()!.byResize(to: CGSize(width: size, height: size))!
+            return avatar.toImage()!.byResize(to: CGSize(width: size, height: size))!.byRoundCornerRadius(size/2)!
         }else{
-            return .init(named: "user_avatar")!.byResize(to: CGSizeMake(size, size))!
+            return .init(named: "user_avatar")!.byResize(to: CGSizeMake(size, size))!.byRoundCornerRadius(size/2)!
         }
     }
     
@@ -109,6 +109,7 @@ class PostCell: UITableViewCell{
                     make.bottom.equalTo(-8)
                 }
                 
+                
                 for image in post.images{
                     let imageView = UIImageView()
                     imageView.snp.makeConstraints { make in
@@ -139,9 +140,10 @@ class PostCell: UITableViewCell{
                 contentLabel.snp.remakeConstraints { make in
                     make.left.equalTo(titleLabel)
                     make.top.equalTo(titleLabel.snp.bottom).offset(12)
-                    make.bottom.lessThanOrEqualTo(self.singleImageView)
                     if !hasImage{
                         make.right.equalTo(-14)
+                    }else{
+                        make.bottom.lessThanOrEqualTo(self.singleImageView)
                     }
                 }
                 if (hasImage) {
@@ -151,6 +153,7 @@ class PostCell: UITableViewCell{
                         make.left.equalTo(titleLabel.snp.right).offset(10)
                         make.left.equalTo(contentLabel.snp.right).offset(10)
                         make.width.height.equalTo(kImageWH)
+                        make.bottom.lessThanOrEqualTo(self.timeLabel.snp.top).offset(-14)
                     }
                     singleImageView.image = post.images[0].toImage()
                 }
@@ -167,16 +170,19 @@ class PostCell: UITableViewCell{
             titleLabel.text = post.title
             contentLabel.text = post.content
             
-            if let avatar = post.userInfo.avatar{
-                let data = Data(base64Encoded: avatar, options: .ignoreUnknownCharacters)!
-                let image = UIImage(data: data)?.resizeImageToSize(size: CGSize(width: 30, height: 30))
-                userAvatar.chain.normalImage(image).normalTitle(text: post.userInfo.nickname)
-                userAvatar.setImagePosition(.left, spacing: 8)
-            }else{
-                let image = UIImage(named: "user_avatar")?.resizeImageToSize(size: CGSize(width: 30, height: 30))
-                userAvatar.chain.normalImage(image).normalTitle(text: post.userInfo.nickname)
-                userAvatar.setImagePosition(.left, spacing: 8)
-            }
+//            if let avatar = post.userInfo.avatar{
+//                let data = Data(base64Encoded: avatar, options: .ignoreUnknownCharacters)!
+//                let image = UIImage(data: data)?.resizeImageToSize(size: CGSize(width: 30, height: 30))
+//                userAvatar.chain.normalImage(image).normalTitle(text: post.userInfo.nickname)
+//                userAvatar.setImagePosition(.left, spacing: 8)
+//            }else{
+//                let image = UIImage(named: "user_avatar")?.resizeImageToSize(size: CGSize(width: 30, height: 30))
+//                userAvatar.chain.normalImage(image).normalTitle(text: post.userInfo.nickname)
+//                userAvatar.setImagePosition(.left, spacing: 8)
+//            }
+            
+            userAvatar.chain.normalImage(post.userAvatar()).normalTitle(text: post.userInfo.nickname)
+            userAvatar.setImagePosition(.left, spacing: 8)
             timeLabel.text = post.create_time
 
         }
@@ -240,27 +246,37 @@ class PostCell: UITableViewCell{
     }
 }
 
-class CircleVC: BaseVC {
-    var userAvatar : UIButton!
+class PostListVC: BaseVC {
+    let cat: String
+    //var userAvatar : UIButton!
     var tableView: UITableView!
     
     var posts = [PostModel]()
     
+    init(cat: String) {
+        self.cat = cat
+        super.init()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func configNavigationBar() {
         self.navigationItem.title = "圈子"
-        userAvatar = UIButton(frame: CGRectMake(0, 0, 32, 32))
-        userAvatar.snp.makeConstraints { make in
-            make.width.height.equalTo(32)
-        }
-        userAvatar.chain.corner(radius: 16).clipsToBounds(true)
-        let item = UIBarButtonItem(customView: userAvatar)
-        userAvatar.addBlock(for: .touchUpInside) {[weak self] _ in
-            UserStore.checkLoginStatusThen {
-                self?.navigationController?.pushViewController(MineVC(), animated: true)
-            }
-        }
-        
-        self.navigationItem.rightBarButtonItem = item
+//        userAvatar = UIButton(frame: CGRectMake(0, 0, 32, 32))
+//        userAvatar.snp.makeConstraints { make in
+//            make.width.height.equalTo(32)
+//        }
+//        userAvatar.chain.corner(radius: 16).clipsToBounds(true)
+//        let item = UIBarButtonItem(customView: userAvatar)
+//        userAvatar.addBlock(for: .touchUpInside) {[weak self] _ in
+//            UserStore.checkLoginStatusThen {
+//                self?.navigationController?.pushViewController(MineVC(), animated: true)
+//            }
+//        }
+//
+//        self.navigationItem.rightBarButtonItem = item
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -269,11 +285,11 @@ class CircleVC: BaseVC {
     
     
     func updateUserInfo(){
-        if UserStore.isLogin{
-            userAvatar.chain.normalImage(UserStore.currentUser?.avatarImage)
-        }else{
-            userAvatar.chain.normalImage(.init(named: "user_avatar"))
-        }
+//        if UserStore.isLogin{
+//            userAvatar.chain.normalImage(UserStore.currentUser?.avatarImage)
+//        }else{
+//            userAvatar.chain.normalImage(.init(named: "user_avatar"))
+//        }
     }
 
     override func configData() {
@@ -298,7 +314,7 @@ class CircleVC: BaseVC {
     }
     
     func loadPosts(){
-        userService.request(.postList()) {[weak self] result in
+        userService.request(.postList(type: 0, atype: cat)) {[weak self] result in
             self?.tableView.mj_header?.endRefreshing()
             result.hj_map2(PostModel.self) { body, error in
                 guard let body = body else {return}
@@ -311,7 +327,7 @@ class CircleVC: BaseVC {
 
 }
 
-extension CircleVC : UITableViewDelegate, UITableViewDataSource{
+extension PostListVC : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.posts.count
     }

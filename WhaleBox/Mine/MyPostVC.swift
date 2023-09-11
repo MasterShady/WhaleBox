@@ -74,4 +74,41 @@ extension MyPostVC : UITableViewDelegate, UITableViewDataSource, EmptyDataSetSou
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
         return .init("暂时没有发帖哦~", color: .kTextLightGray, font: .systemFont(ofSize: 14))
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let alert = AEAlertView(style: .defaulted, title: "删除帖子", message: "删除后数据不可恢复,确定删除吗?")
+            alert.addAction(action: .init(title: "确定", handler: {[weak alert, weak self] action in
+                guard let self = self else {return}
+                let post = self.posts.remove(at: indexPath.row)
+                tableView.reloadData()
+                userService.request(.deletePost(id: post.id)) { result in
+                    result.hj_map2 { body, error in
+                        if let error = error{
+                            error.msg.hint()
+                            return
+                        }
+                        "删除成功".hint()
+                        //NotificationCenter.post(name: .localFileLoadCompleted)
+                    }
+                    
+                }
+                alert?.dismiss()
+            }))
+            
+            alert.addAction(action: .init(title: "再想想", handler: {[weak alert] action in
+                alert?.dismiss()
+            }))
+            alert.show()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
 }
