@@ -44,13 +44,18 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    [self.navigationController setNavigationBarHidden:true animated:animated];
+    if (!self.prepareModels || self.prepareModels.count == 0){
+        [self.navigationController setNavigationBarHidden:true animated:animated];
+    }
+    
     self.manager.isAppeared = YES;
     [self.manager play];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
-    [self.navigationController setNavigationBarHidden:false animated:animated];
+    if (!self.prepareModels || self.prepareModels.count == 0){
+        [self.navigationController setNavigationBarHidden:false animated:animated];
+    }
     [self.manager pause];
 }
 
@@ -100,6 +105,8 @@
     if (self.prepareModels.count > 0) {
         [self.manager.dataSources addObjectsFromArray:self.prepareModels];
         [self.manager.scrollView.mj_footer endRefreshingWithNoMoreData];
+        [self.manager.scrollView reloadData];
+        !completion?:completion();
         return;
     }
     

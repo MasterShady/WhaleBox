@@ -11,7 +11,34 @@ import HandyJSON
 import MJRefresh
 import YYKit
 
+extension UIImageView {
+    func configImageWithString(image: String){
+        if image.isBase64String {
+            self.image = image.toImage()
+        }else{
+            self.kf.setImage(with: URL(subPath: image))
+        }
+    }
+}
+
 extension String {
+    
+    var isBase64String : Bool {
+        if self.count == 0 {return false}
+        let base64Pattern = #"^[A-Za-z0-9+/]*={0,2}$"#
+
+        if let regex = try? NSRegularExpression(pattern: base64Pattern, options: []) {
+            let range = NSRange(location: 0, length: self.utf16.count)
+            if regex.firstMatch(in: self, options: [], range: range) != nil {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return false
+        }
+    }
+    
     func toImage() -> UIImage?{
         let data = Data(base64Encoded: self, options: .ignoreUnknownCharacters)!
         let image = UIImage(data: data)
@@ -115,7 +142,9 @@ class PostCell: UITableViewCell{
                     imageView.snp.makeConstraints { make in
                         make.width.height.equalTo(kImageWH)
                     }
-                    imageView.image = image.toImage()
+                    imageView.configImageWithString(image: image)
+                    
+                    
                     imageView.chain.corner(radius: 5).clipsToBounds(true).contentMode(.scaleAspectFit).backgroundColor(.kExLightGray)
                     
                     imageStackView.addArrangedSubview(imageView)
@@ -142,6 +171,7 @@ class PostCell: UITableViewCell{
                     make.top.equalTo(titleLabel.snp.bottom).offset(12)
                     if !hasImage{
                         make.right.equalTo(-14)
+                        make.height.lessThanOrEqualTo(150)
                     }else{
                         make.bottom.lessThanOrEqualTo(self.singleImageView)
                     }
@@ -155,7 +185,8 @@ class PostCell: UITableViewCell{
                         make.width.height.equalTo(kImageWH)
                         make.bottom.lessThanOrEqualTo(self.timeLabel.snp.top).offset(-14)
                     }
-                    singleImageView.image = post.images[0].toImage()
+                    //singleImageView.image = post.images[0].toImage()
+                    singleImageView.configImageWithString(image: post.images[0])
                 }
                 
 
@@ -207,6 +238,7 @@ class PostCell: UITableViewCell{
             
         }
         titleLabel.chain.text(color: .kTextBlack).font(.semibold(16)).numberOfLines(2)
+        titleLabel.setContentCompressionResistancePriority(.required, for: .vertical)
         
         contentLabel = UILabel()
         contentView.addSubview(contentLabel)
@@ -263,7 +295,7 @@ class PostListVC: BaseVC {
     }
     
     override func configNavigationBar() {
-        self.navigationItem.title = "圈子"
+        self.navigationItem.title = self.cat
 //        userAvatar = UIButton(frame: CGRectMake(0, 0, 32, 32))
 //        userAvatar.snp.makeConstraints { make in
 //            make.width.height.equalTo(32)
@@ -314,7 +346,7 @@ class PostListVC: BaseVC {
     }
     
     func loadPosts(){
-        userService.request(.postList(type: 0, atype: cat)) {[weak self] result in
+        userService.request(.postList(type: 0, atype: cat.toGameCat)) {[weak self] result in
             self?.tableView.mj_header?.endRefreshing()
             result.hj_map2(PostModel.self) { body, error in
                 guard let body = body else {return}

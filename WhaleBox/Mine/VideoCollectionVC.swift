@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import JXSegmentedView
+import EmptyDataSet_Swift
 
 class VideoCell: UICollectionViewCell {
     
@@ -39,25 +41,27 @@ class VideoCell: UICollectionViewCell {
     }
     
     func configSubviews(){
+        chain.corner(radius: 5).clipsToBounds(true).backgroundColor(.black)
         cover = .init()
         contentView.addSubview(cover)
         cover.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        cover.contentMode = .scaleAspectFit
+        
         
         titleLabel = .init()
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
-            make.left.equalTo(12)
-            make.right.equalTo(-12)
-            //make.bottom.equalTo(-8)
+            make.left.equalTo(8)
+            make.right.equalTo(-8)
         }
         titleLabel.chain.backgroundColor(.kBlack.alpha(0.3)).text(color: .white).font(.systemFont(ofSize: 14)).numberOfLines(2)
         
         authorAvatar = .init()
         contentView.addSubview(authorAvatar)
         authorAvatar.snp.makeConstraints { make in
-            make.left.equalTo(12)
+            make.left.equalTo(8)
             make.bottom.equalTo(-8)
             make.top.equalTo(titleLabel.snp.bottom).offset(5)
             make.width.height.equalTo(30)
@@ -76,10 +80,12 @@ class VideoCell: UICollectionViewCell {
 }
 
 class VideoCollectionVC: BaseVC {
+    
+    
     var collectionView: UICollectionView!
     let disposeBag = DisposeBag()
     
-    var videosRelay = BehaviorRelay(value: [GKDYVideoModel]())
+    var videosRelay = BehaviorRelay(value: [VideoModelWrapper]())
     
     
     override func configSubViews() {
@@ -88,7 +94,7 @@ class VideoCollectionVC: BaseVC {
         let inset = 16.0
         let spacing = 16.0
         
-        let itemW = (kScreenWidth - inset * 2 - spacing) * 2
+        let itemW = (kScreenWidth - inset * 2 - spacing) / 2
         let itewH = itemW * 1.333
         layout.itemSize = CGSizeMake(itemW, itewH)
         
@@ -98,24 +104,30 @@ class VideoCollectionVC: BaseVC {
             make.edges.equalToSuperview()
         }
         collectionView.register(VideoCell.self, forCellWithReuseIdentifier: "cellId")
+        collectionView.contentInset = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+        
         videosRelay.bind(to: collectionView.rx.items(cellIdentifier: "cellId", cellType: VideoCell.self)) {index , element, cell in
-            cell.videoModel = element
+            cell.videoModel = element.video_info
         }.disposed(by: disposeBag)
         
         collectionView.rx.itemSelected.subscribe {[weak self] indexPath in
             guard let self = self else {return}
             let vc = GKDYPlayerViewController()
-            vc.prepare(self.videosRelay.value, at: indexPath.row)
+            vc.prepare(self.videosRelay.value.map(\.video_info), at: indexPath.row)
             self.navigationController?.pushViewController(vc, animated: true)
             
         }.disposed(by: disposeBag)
+        
+        collectionView.emptyDataSetSource = self
+        
+        //videosRelay.map { $0.count > 0}.bind(to: <#T##Bool...##Bool#>).disposed(by: disposeBag)
     }
     
     
     override func networkRequest() {
         userService.request(.collectVideoList) {[weak self] result in
             guard let self = self else {return}
-            result.hj_map2( GKDYVideoModel.self) { body, error in
+            result.hj_map2( VideoModelWrapper.self) { body, error in
                 if let error = error {
                     error.msg.hint()
                     return
@@ -127,4 +139,23 @@ class VideoCollectionVC: BaseVC {
     
     
     
+    
+}
+
+
+extension VideoCollectionVC : EmptyDataSetSource{
+    func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
+        return .init(named: "no_data")?.byResize(to: CGSize(width: 100, height: 100))
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        return .init("没有收藏的视频哦~", color: .kTextLightGray, font: .systemFont(ofSize: 14))
+    }
+}
+
+
+extension VideoCollectionVC :JXSegmentedListContainerViewListDelegate{
+    func listView() -> UIView {
+        return self.view
+    }
 }

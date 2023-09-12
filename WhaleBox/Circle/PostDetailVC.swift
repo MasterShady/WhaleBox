@@ -135,12 +135,25 @@ class PostDetailVC: BaseVC {
         for imageString in post.images {
             stackView.addSpacing(10)
             let imageView = UIImageView()
-            let image = imageString.toImage()!
-            imageView.snp.makeConstraints { make in
-                make.width.equalTo(kScreenWidth)
-                make.height.equalTo(kScreenWidth * image.size.height/image.size.width)
+            if imageString.isBase64String {
+                
+                let image = imageString.toImage()!
+                imageView.snp.makeConstraints { make in
+                    make.width.equalTo(kScreenWidth)
+                    make.height.equalTo(kScreenWidth * image.size.height/image.size.width)
+                }
+                imageView.image = image
+            }else{
+                
+                imageView.kf.setImage(with: URL(subPath: imageString)) { result in
+                    if case .success(let result) = result{
+                        imageView.snp.updateConstraints { make in
+                            make.height.equalTo(result.image.size.height/result.image.size.width * kScreenWidth)
+                        }
+                    }
+                }
             }
-            imageView.image = image
+            
             stackView.addArrangedSubview(imageView)
             imageView.isUserInteractionEnabled = true
             imageView.addGestureRecognizer(UITapGestureRecognizer(actionBlock: { [weak self] _ in

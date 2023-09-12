@@ -14,6 +14,9 @@ open class StringToArrayTransform: TransformType {
     
     open func transformFromJSON(_ value: Any?) -> [String]? {
         if let raw = value as? String {
+            if raw.count == 0{
+                return []
+            }
             return raw.components(separatedBy: ",")
         }
         return []

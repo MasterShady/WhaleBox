@@ -476,6 +476,13 @@ extension ObservableType where Element == Moya.Response {
 }
 
 
+//extension Single where Element == Moya.Response{
+//    public func mapToBody<T:HandyJSON>(type: T.Type = IgnoreData.self) -> Single<ResponseBody<T>?> {
+//         
+//    }
+//}
+
+
 /// json数据 转 模型
 extension Moya.Response {
     func mapToBody<T: HandyJSON>(_ type: T.Type = IgnoreData.self)  -> (ResponseBody<T>?,ResponseError?){

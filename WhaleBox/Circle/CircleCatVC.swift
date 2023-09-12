@@ -7,14 +7,26 @@
 
 import UIKit
 
+let gameCatMap = [
+    "无畏契约":1,
+    "永劫无间":2,
+    "PC游戏": 3,
+    "博德之门":4
+]
+
+extension String {
+    var toGameCat: Int {
+        return gameCatMap[self]!
+    }
+}
 
 
 class CatCell: UITableViewCell {
-    var data: (title:String, icon:String)? {
+    var data: String? {
         didSet{
             if let data = data{
-                titleLabel.text = data.title
-                iconView.image = .init(named: data.icon)
+                titleLabel.text = data
+                iconView.image = .init(named: data)
             }
         }
     }
@@ -62,10 +74,10 @@ class CircleCatVC: BaseVC {
     var didSelectedCat : StringBlock?
     
     let datasouce = [
-        ("无畏契约", "无畏契约"),
-        ("永劫无间", "永劫无间"),
-        ("PC游戏", "PC"),
-        ("博德之门", "博德之门"),
+        "无畏契约",
+        "永劫无间",
+        "PC游戏",
+        "博德之门"
     ]
 
     override func configNavigationBar() {
@@ -92,10 +104,10 @@ class CircleCatVC: BaseVC {
             guard let self = self else {return}
             let data = self.datasouce[indexPath.row]
             if self.didSelectedCat == nil{
-                let vc = PostListVC(cat: data.0)
+                let vc = PostListVC(cat: data)
                 self.navigationController?.pushViewController(vc, animated: true)
             }else{
-                self.didSelectedCat?(data.0)
+                self.didSelectedCat?(data)
             }
             
             

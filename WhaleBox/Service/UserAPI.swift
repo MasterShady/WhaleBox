@@ -25,10 +25,17 @@ public enum UserAPI {
     case updateUser(nickname:String, avatar: String)
     case collectList
     case collectPost(postId:Int, collect:Bool)
-    //atype 用来筛选category. type = 0 全部帖子, 1 我的帖子
-    case postList(type: Int = 0, atype: String? = nil)
+    /*
+     type = 0 全部帖子, 1 我的帖子
+     atype 用来筛选category
+     瓦罗兰特帖子 1
+     永劫无间  2
+     PC游戏   3
+     博德之门  4
+     */
+    case postList(type: Int = 0, atype: Int? = nil)
     case commentList(id: Int)
-    case makePost(type:String, title:String, content:String, images:String)
+    case makePost(type:Int, title:String, content:String, images:String)
     case makeComment(pid: Int, content: String)
     case getNewsList(Int)
     case login(mobile:String, passwd: String)
@@ -48,7 +55,7 @@ public enum UserAPI {
 extension UserAPI: TargetType {
     public var baseURL: URL {
         switch self {
-        case .postList, .makePost, .commentList, .collectPost, .login, .register, .makeComment, .updateUser, .deregister, .collectList, .deletePost, .collectVideoList:
+        case .postList, .makePost, .commentList, .collectPost, .login, .register, .makeComment, .updateUser, .deregister, .collectList, .deletePost, .collectVideoList, .collectVideo:
             return URL(string:kPostHost)!
         default:
             return URL(string:kRequestHost)!

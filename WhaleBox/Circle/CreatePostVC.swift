@@ -298,7 +298,7 @@ class CreatePostVC: BaseVC {
             let imageBase64List = images.map{ image in
                 return image.jpegData(compressionQuality: 0.1)!.base64EncodedString()
             }.joined(separator: ",")
-            return userService.rx.request(.makePost(type:type,title: title!, content: content!, images: imageBase64List)).catch({ error in
+            return userService.rx.request(.makePost(type:type.toGameCat,title: title!, content: content!, images: imageBase64List)).catch({ error in
                 let error = error as NSError
                 let data = try! NSKeyedArchiver.archivedData(withRootObject: error, requiringSecureCoding: false)
                 return Single.just(Response(statusCode: 6666, data:data))
