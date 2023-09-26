@@ -8,6 +8,12 @@
 import Foundation
 import HandyJSON
 
+let nameTransform = TransformOf<String, String>(fromJSON: { raw in
+    return raw?.replacingOccurrences(of: "博德之门", with: "刀锋之影")
+}, toJSON: { string in
+    return string
+})
+
 open class StringToArrayTransform: TransformType {
     public typealias Object = [String]
     public typealias JSON = String
@@ -47,5 +53,7 @@ struct News : HandyJSON{
     
     mutating func mapping(mapper: HelpingMapper) {
         mapper <<< self.detail_imgs <-- StringToArrayTransform()
+        mapper <<< self.title <-- nameTransform
+        mapper <<< self.detail_content <-- nameTransform
     }
 }

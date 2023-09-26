@@ -187,6 +187,14 @@ extension String{
     }
 }
 
+extension NSString{
+    @objc func hint(){
+        let toast = Toast(text: self as String)
+        toast.view.bottomOffsetPortrait = UIScreen.main.bounds.size.height/2
+        toast.show()
+    }
+}
+
 
 //MARK: Log
 public func track(_ message: String, file: String = #file, function: String = #function, line: Int = #line ) {

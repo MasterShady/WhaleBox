@@ -307,7 +307,7 @@ class CreatePostVC: BaseVC {
             if let error = error{
                 error.msg.hint()
             }else{
-                "发帖成功".hint()
+                "您的帖子即将进行审核,审核完成前,仅自己可见 ~".hint()
                 self?.dismiss(animated: true)
             }
         }

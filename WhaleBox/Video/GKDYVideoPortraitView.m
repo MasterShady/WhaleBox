@@ -9,6 +9,7 @@
 #import "GKDYVideoPortraitView.h"
 #import "GKDYVideoItemButton.h"
 #import "GKDoubleLikeView.h"
+#import "WhaleBox-Swift.h"
 
 @interface GKDYVideoPortraitView()
 
@@ -18,7 +19,7 @@
 
 @property (nonatomic, strong) GKDYVideoItemButton *shareBtn;
 
-@property (nonatomic, strong) GKDYVideoItemButton *commentBtn;
+@property (nonatomic, strong) UIButton *commentBtn;
 
 @property (nonatomic, strong) UIImageView *iconView;
 
@@ -60,7 +61,7 @@
 //    self.likeView.hidden = ;
     self.shareBtn.hidden = true;
     self.iconView.hidden = true;
-    self.commentBtn.hidden = true;
+    //self.commentBtn.hidden = true;
     self.fullscreenBtn.hidden = true;
     
     [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -186,8 +187,8 @@
     
     [self.shareBtn setTitle:@"0" forState:UIControlStateNormal];
     
-    NSString *comment = model.comment.integerValue > 0 ? model.comment : @"0";
-    [self.commentBtn setTitle:comment forState:UIControlStateNormal];
+//    NSString *comment = model.comment.integerValue > 0 ? model.comment : @"0";
+//    [self.commentBtn setTitle:comment forState:UIControlStateNormal];
     
     NSString *like = model.like.integerValue > 0 ? model.like : @"0";
     [self.likeView setupLikeCount:like];
@@ -321,10 +322,10 @@
     return _likeView;
 }
 
-- (GKDYVideoItemButton *)commentBtn {
+- (UIButton *)commentBtn {
     if (!_commentBtn) {
-        _commentBtn = [[GKDYVideoItemButton alloc] init];
-        [_commentBtn setImage:[UIImage imageNamed:@"icon_home_comment"] forState:UIControlStateNormal];
+        _commentBtn = [[UIButton alloc] init];
+        [_commentBtn setImage:[UIImage imageNamed:@"report"]  forState:UIControlStateNormal];
         _commentBtn.titleLabel.font = [UIFont systemFontOfSize:13.0f];
         [_commentBtn setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
         [_commentBtn addTarget:self action:@selector(commentDidClick) forControlEvents:UIControlEventTouchUpInside];

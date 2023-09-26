@@ -45,8 +45,8 @@ class HomeVC: BaseVC {
         userHeaderView = PagingViewTableHeaderView(frame: userHeaderContainerView.bounds)
         userHeaderView.clickBannerHandler = { [weak self] in
             guard let self = self else {return}
-            let news = self.strategies.first { news in
-                news.id == 176
+            let news = self.news.first { news in
+                news.id == 41
             }
             self.navigationController?.pushViewController(NewsDetailVC(news: news!), animated: true)
         }
@@ -100,7 +100,7 @@ class HomeVC: BaseVC {
                     error.msg.hint()
                     return
                 }
-                self.strategies = body!.decodedObjList!
+                self.strategies = body!.decodedObjList!.shuffled()
                 self.pagingView.reloadData()
             }
         }
@@ -111,7 +111,7 @@ class HomeVC: BaseVC {
                     error.msg.hint()
                     return
                 }
-                self?.news = body!.decodedObjList!
+                self?.news = body!.decodedObjList!.shuffled()
                 self?.pagingView.reloadData()
             }
         }

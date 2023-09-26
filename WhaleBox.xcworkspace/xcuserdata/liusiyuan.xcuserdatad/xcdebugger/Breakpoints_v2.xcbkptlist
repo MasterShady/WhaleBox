@@ -18,5 +18,371 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "374A339D-1FA7-4DA8-8AC4-833F1C543D93"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WhaleBox/Login/LoginVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "LoginViewModel"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "374A339D-1FA7-4DA8-8AC4-833F1C543D93 - d9779a7d14409501"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (Swift.String, Swift.String) -&gt; RxSwift.Observable&lt;(Swift.Optional&lt;WhaleBox.ResponseBody&lt;WhaleBox.UserAccount&gt;&gt;, Swift.Optional&lt;WhaleBox.ResponseError&gt;)&gt; in WhaleBox.LoginViewModel.init(input: (username: RxCocoa.SharedSequence&lt;RxCocoa.DriverSharingStrategy, Swift.String&gt;, password: RxCocoa.SharedSequence&lt;RxCocoa.DriverSharingStrategy, Swift.String&gt;, agreedDriver: RxCocoa.SharedSequence&lt;RxCocoa.DriverSharingStrategy, Swift.Bool&gt;, loginTaps: RxCocoa.SharedSequence&lt;RxCocoa.SignalSharingStrategy, ()&gt;)) -&gt; WhaleBox.LoginViewModel"
+                  moduleName = "WhaleBox"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liusiyuan/development/DF/WhaleBox/WhaleBox/Login/LoginVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "115"
+                  endingLineNumber = "115"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "374A339D-1FA7-4DA8-8AC4-833F1C543D93 - ba90c3eeb4e82fde"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WhaleBox.LoginViewModel.init(input: (username: RxCocoa.SharedSequence&lt;RxCocoa.DriverSharingStrategy, Swift.String&gt;, password: RxCocoa.SharedSequence&lt;RxCocoa.DriverSharingStrategy, Swift.String&gt;, agreedDriver: RxCocoa.SharedSequence&lt;RxCocoa.DriverSharingStrategy, Swift.Bool&gt;, loginTaps: RxCocoa.SharedSequence&lt;RxCocoa.SignalSharingStrategy, ()&gt;)) -&gt; WhaleBox.LoginViewModel"
+                  moduleName = "WhaleBox"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liusiyuan/development/DF/WhaleBox/WhaleBox/Login/LoginVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "1032">
+               </Location>
+               <Location
+                  uuid = "374A339D-1FA7-4DA8-8AC4-833F1C543D93 - ba90c3eeb4e82fde"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WhaleBox.LoginViewModel.init(input: (username: RxCocoa.SharedSequence&lt;RxCocoa.DriverSharingStrategy, Swift.String&gt;, password: RxCocoa.SharedSequence&lt;RxCocoa.DriverSharingStrategy, Swift.String&gt;, agreedDriver: RxCocoa.SharedSequence&lt;RxCocoa.DriverSharingStrategy, Swift.Bool&gt;, loginTaps: RxCocoa.SharedSequence&lt;RxCocoa.SignalSharingStrategy, ()&gt;)) -&gt; WhaleBox.LoginViewModel"
+                  moduleName = "WhaleBox"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liusiyuan/development/DF/WhaleBox/WhaleBox/Login/LoginVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "1262">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "903D57AD-3F03-4F03-A2B9-07D2813C05FF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/RxCocoa/RxCocoa/Traits/Signal/Signal.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "SignalSharingStrategy"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "903D57AD-3F03-4F03-A2B9-07D2813C05FF - 632591f048ead18"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static RxCocoa.SignalSharingStrategy.scheduler.getter : RxSwift.SchedulerType"
+                  moduleName = "RxCocoa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liusiyuan/development/DF/WhaleBox/Pods/RxCocoa/RxCocoa/Traits/Signal/Signal.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "903D57AD-3F03-4F03-A2B9-07D2813C05FF - 632591f048ead18"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static RxCocoa.SignalSharingStrategy.scheduler.getter : RxSwift.SchedulerType"
+                  moduleName = "RxCocoa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liusiyuan/development/DF/WhaleBox/Pods/RxCocoa/RxCocoa/Traits/Signal/Signal.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "14">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "80B2A1B2-515F-43DE-813D-DDC5D95AB5B7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/RxCocoa/RxCocoa/Traits/Signal/Signal.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "share(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "80B2A1B2-515F-43DE-813D-DDC5D95AB5B7 - ba6b18cdb25ddfe1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static RxCocoa.SignalSharingStrategy.share&lt;&#x3c4;_0_0&gt;(RxSwift.Observable&lt;&#x3c4;_0_0&gt;) -&gt; RxSwift.Observable&lt;&#x3c4;_0_0&gt;"
+                  moduleName = "RxCocoa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liusiyuan/development/DF/WhaleBox/Pods/RxCocoa/RxCocoa/Traits/Signal/Signal.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "80B2A1B2-515F-43DE-813D-DDC5D95AB5B7 - ba6b18cdb25ddfe1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static RxCocoa.SignalSharingStrategy.share&lt;&#x3c4;_0_0&gt;(RxSwift.Observable&lt;&#x3c4;_0_0&gt;) -&gt; RxSwift.Observable&lt;&#x3c4;_0_0&gt;"
+                  moduleName = "RxCocoa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liusiyuan/development/DF/WhaleBox/Pods/RxCocoa/RxCocoa/Traits/Signal/Signal.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "33">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F311644B-7374-4ADF-B648-1E57762A54EA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/RxCocoa/RxCocoa/Traits/Signal/Signal.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "asSignal()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F311644B-7374-4ADF-B648-1E57762A54EA - 670c7752c94cd8a4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RxCocoa.SharedSequenceConvertibleType&lt; where &#x3c4;_0_0.SharingStrategy == RxCocoa.SignalSharingStrategy&gt;.asSignal() -&gt; RxCocoa.SharedSequence&lt;RxCocoa.SignalSharingStrategy, &#x3c4;_0_0.Element&gt;"
+                  moduleName = "RxCocoa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liusiyuan/development/DF/WhaleBox/Pods/RxCocoa/RxCocoa/Traits/Signal/Signal.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "F311644B-7374-4ADF-B648-1E57762A54EA - 670c7752c94cd8a4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RxCocoa.SharedSequenceConvertibleType&lt; where &#x3c4;_0_0.SharingStrategy == RxCocoa.SignalSharingStrategy&gt;.asSignal() -&gt; RxCocoa.SharedSequence&lt;RxCocoa.SignalSharingStrategy, &#x3c4;_0_0.Element&gt;"
+                  moduleName = "RxCocoa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liusiyuan/development/DF/WhaleBox/Pods/RxCocoa/RxCocoa/Traits/Signal/Signal.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9DCE44D5-A51B-4A66-B104-6459822C2783"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WhaleBox/Utils/GEPopTool.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "dismissPopView(completedHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9DCE44D5-A51B-4A66-B104-6459822C2783 - 438b61d528c4ab84"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static WhaleBox.GEPopTool.dismissPopView(completedHandler: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "WhaleBox"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liusiyuan/development/DF/WhaleBox/WhaleBox/Utils/GEPopTool.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "142"
+                  endingLineNumber = "142"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  uuid = "9DCE44D5-A51B-4A66-B104-6459822C2783 - 438b61d528c4ab84"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static WhaleBox.GEPopTool.dismissPopView(completedHandler: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "WhaleBox"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liusiyuan/development/DF/WhaleBox/WhaleBox/Utils/GEPopTool.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "142"
+                  endingLineNumber = "142"
+                  offsetFromSymbolStart = "96">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "20D7E3F8-2614-48B2-992B-1AD5969F2067"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WhaleBox/Utils/GEPopTool.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
+            landmarkName = "tapGuesture"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "20D7E3F8-2614-48B2-992B-1AD5969F2067 - ad638c0c237ba4ce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; __C.UITapGestureRecognizer in variable initialization expression of static WhaleBox.GEPopTool.tapGuesture : __C.UITapGestureRecognizer"
+                  moduleName = "WhaleBox"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liusiyuan/development/DF/WhaleBox/WhaleBox/Utils/GEPopTool.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "223"
+                  endingLineNumber = "223"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "20D7E3F8-2614-48B2-992B-1AD5969F2067 - ce36271bc2061897"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Any) -&gt; () in closure #1 () -&gt; __C.UITapGestureRecognizer in variable initialization expression of static WhaleBox.GEPopTool.tapGuesture : __C.UITapGestureRecognizer"
+                  moduleName = "WhaleBox"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liusiyuan/development/DF/WhaleBox/WhaleBox/Utils/GEPopTool.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "223"
+                  endingLineNumber = "223"
+                  offsetFromSymbolStart = "400">
+               </Location>
+               <Location
+                  uuid = "20D7E3F8-2614-48B2-992B-1AD5969F2067 - ce36271bc2061897"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Any) -&gt; () in closure #1 () -&gt; __C.UITapGestureRecognizer in variable initialization expression of static WhaleBox.GEPopTool.tapGuesture : __C.UITapGestureRecognizer"
+                  moduleName = "WhaleBox"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liusiyuan/development/DF/WhaleBox/WhaleBox/Utils/GEPopTool.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "223"
+                  endingLineNumber = "223"
+                  offsetFromSymbolStart = "551">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AA6BB7B6-826D-4F23-81DD-AAAA55FB34A7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WhaleBox/Video/GKDYPlayerViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
+            landmarkName = "-cellDidClickComment:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AA6BB7B6-826D-4F23-81DD-AAAA55FB34A7 - 73cd527207d86a85"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__48-[GKDYPlayerViewController cellDidClickComment:]_block_invoke"
+                  moduleName = "WhaleBox"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liusiyuan/development/DF/WhaleBox/WhaleBox/Video/GKDYPlayerViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "191"
+                  endingLineNumber = "191"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "AA6BB7B6-826D-4F23-81DD-AAAA55FB34A7 - 73cd527207d86a85"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__48-[GKDYPlayerViewController cellDidClickComment:]_block_invoke"
+                  moduleName = "WhaleBox"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liusiyuan/development/DF/WhaleBox/WhaleBox/Video/GKDYPlayerViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "191"
+                  endingLineNumber = "191"
+                  offsetFromSymbolStart = "58">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

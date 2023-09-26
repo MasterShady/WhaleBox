@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "矩形备份 75.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "矩形备份 75@2x.png",
+      "filename" : "more.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "博得之门.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

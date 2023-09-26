@@ -10,6 +10,21 @@ import Kingfisher
 import HandyJSON
 import MJRefresh
 import YYKit
+import FTPopOverMenu_Swift
+
+class PostBlackListManager {
+    
+    static var blackList : [Int] {
+        return UserDefaults.standard.array(forKey: "PostBlackList") as? [Int] ?? [Int]()
+    }
+    
+    static func addPost(id : Int){
+        var list = self.blackList
+        list.append(id)
+        UserDefaults.standard.set(list, forKey: "PostBlackList")
+        UserDefaults.standard.synchronize()
+    }
+}
 
 extension UIImageView {
     func configImageWithString(image: String){
@@ -86,11 +101,16 @@ struct UserInfo: HandyJSON{
 private let kImagespacing = 20.0
 private let kImageWH = (kScreenWidth - 14 * 2 - kImagespacing * 2) / 3
 
-class PostCell: UITableViewCell{
+class PostCell: UITableViewCell, UIAdaptivePresentationControllerDelegate{
     var titleLabel : UILabel!
     var contentLabel : UILabel!
     var userAvatar : UIButton!
     var timeLabel: UILabel!
+    
+    var menuClickHandler : IntBlock?
+    
+    
+    
     lazy var singleImageView : UIImageView = {
         let imageView = UIImageView()
         imageView.chain.corner(radius: 5).clipsToBounds(true).contentMode(.scaleAspectFit).backgroundColor(.kExLightGray)
@@ -114,7 +134,7 @@ class PostCell: UITableViewCell{
                 titleLabel.snp.remakeConstraints { make in
                     make.top.equalTo(8)
                     make.left.equalTo(14)
-                    make.right.equalTo(-14)
+                    //make.right.equalTo(-14)
                 }
                 contentLabel.snp.remakeConstraints { make in
                     make.left.equalTo(titleLabel)
@@ -162,9 +182,9 @@ class PostCell: UITableViewCell{
                 titleLabel.snp.remakeConstraints { make in
                     make.top.equalTo(8)
                     make.left.equalTo(14)
-                    if !hasImage{
-                        make.right.equalTo(-14)
-                    }
+//                    if !hasImage{
+//                        make.right.equalTo(-14)
+//                    }
                 }
                 contentLabel.snp.remakeConstraints { make in
                     make.left.equalTo(titleLabel)
@@ -177,8 +197,8 @@ class PostCell: UITableViewCell{
                     }
                 }
                 if (hasImage) {
-                    singleImageView.snp.makeConstraints { make in
-                        make.top.equalTo(titleLabel)
+                    singleImageView.snp.remakeConstraints { make in
+                        make.top.equalTo(contentLabel)
                         make.right.equalTo(-14)
                         make.left.equalTo(titleLabel.snp.right).offset(10)
                         make.left.equalTo(contentLabel.snp.right).offset(10)
@@ -240,6 +260,22 @@ class PostCell: UITableViewCell{
         titleLabel.chain.text(color: .kTextBlack).font(.semibold(16)).numberOfLines(2)
         titleLabel.setContentCompressionResistancePriority(.required, for: .vertical)
         
+        let moreBtn = UIButton()
+        contentView.addSubview(moreBtn)
+        moreBtn.snp.makeConstraints { make in
+            make.centerY.equalTo(titleLabel)
+            make.left.greaterThanOrEqualTo(titleLabel.snp.right).offset(8)
+            make.right.equalTo(-14)
+            make.width.equalTo(40)
+            make.height.equalTo(20)
+        }
+        moreBtn.chain.normalImage(.init(named: "more")).corner(radius: 10).clipsToBounds(true).border(color: .kSepLineColor).border(width: 1)
+        moreBtn.imageView?.contentMode = .center
+        
+        moreBtn.addTarget(self, action: #selector(clickMore(sender:)), for: .touchUpInside)
+        
+        
+        
         contentLabel = UILabel()
         contentView.addSubview(contentLabel)
         contentLabel.snp.makeConstraints { make in
@@ -276,6 +312,30 @@ class PostCell: UITableViewCell{
         }
         sep.backgroundColor = .kSepLineColor
     }
+    
+    @objc func clickMore(sender: UIButton){
+        let configuration = FTConfiguration()
+        configuration.textAlignment = .center
+        
+        FTPopOverMenu.showForSender(sender: sender,
+                                    with: ["举报", "不喜欢"],
+                                    config: configuration,
+                                    done: {[weak self] (selectedIndex) -> () in
+            
+            self?.menuClickHandler?(selectedIndex)
+        }) {
+            
+        }
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+           return UIModalPresentationStyle.none
+       }
+
+       
+       func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+           return UIModalPresentationStyle.none
+       }
 }
 
 class PostListVC: BaseVC {
@@ -350,7 +410,9 @@ class PostListVC: BaseVC {
             self?.tableView.mj_header?.endRefreshing()
             result.hj_map2(PostModel.self) { body, error in
                 guard let body = body else {return}
-                self?.posts = body.decodedObjList!
+                self?.posts = body.decodedObjList!.filter({ post in
+                    !PostBlackListManager.blackList.contains(post.id)
+                })
                 self?.tableView.reloadData()
             }
         }
@@ -366,7 +428,33 @@ extension PostListVC : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(PostCell.self)
-        cell.post = posts[indexPath.row]
+        let post = posts[indexPath.row]
+        cell.post = post
+        cell.menuClickHandler = { [weak self] index in
+            if index == 0{
+                //举报
+                let reportView = ReportView()
+                reportView.dismissHandler = { result in
+                    if result{
+                        PostBlackListManager.addPost(id: post.id)
+                        "感谢您的反馈,我们将进行审核".hint()
+                        self?.posts = self?.posts.filter({ post in
+                            return !PostBlackListManager.blackList.contains(post.id)
+                        }) ?? .init()
+                        tableView.reloadData()
+                    }
+                }
+                reportView.popView(fromDirection: .center, tapToDismiss: false)
+            }else{
+                //不喜欢
+                PostBlackListManager.addPost(id: post.id)
+                "感谢您的反馈,我们将减少此类推荐".hint()
+                self?.posts = self?.posts.filter({ post in
+                    !PostBlackListManager.blackList.contains(post.id)
+                }) ?? .init()
+                tableView.reloadData()
+            }
+        }
         return cell
     }
     

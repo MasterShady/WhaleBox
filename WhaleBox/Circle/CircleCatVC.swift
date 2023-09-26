@@ -11,7 +11,7 @@ let gameCatMap = [
     "无畏契约":1,
     "永劫无间":2,
     "PC游戏": 3,
-    "博德之门":4
+    "刀锋之影":4
 ]
 
 extension String {
@@ -77,7 +77,7 @@ class CircleCatVC: BaseVC {
         "无畏契约",
         "永劫无间",
         "PC游戏",
-        "博德之门"
+        "刀锋之影"
     ]
 
     override func configNavigationBar() {

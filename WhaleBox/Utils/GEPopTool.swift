@@ -7,15 +7,55 @@
 
 import UIKit
 
+
 extension UIView{
-    func popFromBottom(withMask:Bool = true, tapToDismiss:Bool = false){
+    func popFromViewBottom(fromView view: UIView){
+        self.autoresizingMask = []
+        self.layoutIfNeeded()
+        view.addSubview(self)
+        self.top = view.bottom
+        view.centerX = view.centerX
+        UIView.animate(withDuration: 0.3) {
+            view.bottom = view.bottom
+            //view.center = CGPointMake(self.popWindow.size.width/2, self.popWindow.height - view.height/2);
+        } completion: { _ in
+            
+        }
+    }
+    
+    func dismissFromView(fromView view: UIView){
+        UIView.animate(withDuration: 0.3) {
+            self.top = view.bottom
+        } completion: { completed in
+            if completed{
+                self.removeFromSuperview()
+            }
+        }
+    }
+}
+
+enum GEPopDirection: NSInteger{
+    case bottom
+    case center
+    case top
+}
+
+extension UIView{
+    @objc func popFromBottom(withMask:Bool = true, tapToDismiss:Bool = false){
         GEPopTool.popViewFormBottom(view: self, withMask: withMask, tapToDismss: tapToDismiss)
     }
     
-    func popDismiss(completedHandler: Block? = nil){
+    @objc func popDismiss(completedHandler: Block? = nil){
         GEPopTool.dismissPopView(completedHandler: completedHandler)
     }
     
+    @objc func popFromCenter(withMask mask: Bool = true, tapToDismiss: Bool = true){
+        GEPopTool.popView(view: self, fromDirection: .center, withMask: mask, tapToDismiss: tapToDismiss)
+    }
+    
+    func popView(fromDirection direction: GEPopDirection = .bottom, withMask mask: Bool = true, tapToDismiss: Bool = true){
+        GEPopTool.popView(view: self, fromDirection: direction, withMask: mask, tapToDismiss: tapToDismiss)
+    }
 }
 
 class GEWindow: UIWindow{
@@ -33,6 +73,7 @@ class GEPopTool: NSObject {
         let view: UIView
         var isShow: Bool = true
         let tapToDissmiss: Bool
+        var popDiretion = GEPopDirection.bottom
         
         init(view: UIView, tapToDismiss: Bool) {
             self.view = view
@@ -81,12 +122,72 @@ class GEPopTool: NSObject {
         }
     }
     
+    static func popView(view: UIView, fromDirection direction: GEPopDirection = .bottom, withMask mask : Bool = true, tapToDismiss: Bool = true){
+        let topPopItem = GEPopItem(view: view,tapToDismiss: tapToDismiss)
+        topPopItem.popDiretion = direction
+        if popItems.contains(topPopItem){
+            //同一个视图不能重复弹窗.
+            print("already poped")
+            return
+        }
+        
+        popItems.append(topPopItem)
+        popWindow.backgroundColor = .kDeepBlack.alpha(mask ? 0.5 : 0)
+        popWindow.isHidden = false
+        popWindow.addSubview(view)
+        tapGuesture.isEnabled = tapToDismiss
+        
+        view.autoresizingMask = []
+        view.layoutIfNeeded()
+        
+        switch direction {
+        case .bottom:
+            view.top = popWindow.bottom
+            view.centerX = popWindow.centerX
+            UIView.animate(withDuration: 0.3) {
+                view.bottom = self.popWindow.bottom
+                //view.center = CGPointMake(self.popWindow.size.width/2, self.popWindow.height - view.height/2);
+            } completion: { _ in
+                
+            }
+            return
+        case .center:
+            view.center = popWindow.center
+            view.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
+            UIView.animate(withDuration: 0.3) {
+                view.transform = CGAffineTransformIdentity
+            } completion: { _ in
+                
+            }
+        case .top:
+            view.bottom = popWindow.top
+            view.centerX = popWindow.centerX
+            UIView.animate(withDuration: 0.3) {
+                view.top = self.popWindow.top
+            } completion: { _ in
+                
+            }
+        }
+        
+    }
+    
+    
     static func dismissPopView(completedHandler: Block? = nil){
         if let popItem = topPopItem{
             popItem.isShow = false
             tapGuesture.isEnabled = popItem.tapToDissmiss
             UIView.animate(withDuration: 0.3) {
-                popItem.view.top = self.popWindow.bottom
+                switch popItem.popDiretion{
+                case .top:
+                    popItem.view.bottom = self.popWindow.top
+                    break
+                case .bottom:
+                    popItem.view.top = self.popWindow.bottom
+                    break
+                case .center:
+                    popItem.view.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
+                    break
+                }
             } completion: { completed in
                 if completed{
                     popItem.view.removeFromSuperview()
@@ -103,11 +204,26 @@ class GEPopTool: NSObject {
     
     static func adjustSubViewsFrame(){
         self.popItems.forEach { item in
-            if item.isShow{
-                item.view.bottom = self.popWindow.bottom
-            }else{
-                item.view.top = self.popWindow.bottom
+            switch item.popDiretion{
+            case .top:
+                if item.isShow{
+                    item.view.top = self.popWindow.top
+                }else{
+                    item.view.bottom = self.popWindow.top
+                }
+                break
+            case .bottom:
+                if item.isShow{
+                    item.view.bottom = self.popWindow.bottom
+                }else{
+                    item.view.top = self.popWindow.bottom
+                }
+                break
+            case .center:
+                item.view.center = self.popWindow.center
+                break;
             }
+           
             
         }
     }

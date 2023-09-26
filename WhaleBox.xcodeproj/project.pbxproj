@@ -41,6 +41,7 @@
 		EB27DEBE2AAEF8B6001DDBB9 /* CircleCatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB27DEBD2AAEF8B6001DDBB9 /* CircleCatVC.swift */; };
 		EB27DEC02AAF1758001DDBB9 /* OCBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB27DEBF2AAF1758001DDBB9 /* OCBridge.swift */; };
 		EB27DEC22AAF313D001DDBB9 /* VideoCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB27DEC12AAF313D001DDBB9 /* VideoCollectionVC.swift */; };
+		EB27DFB62AB2B907001DDBB9 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB27DFB52AB2B906001DDBB9 /* ReportView.swift */; };
 		EB362ED52AA576710012D038 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB362ED42AA576710012D038 /* AppDelegate.swift */; };
 		EB362ED92AA576710012D038 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB362ED82AA576710012D038 /* ViewController.swift */; };
 		EB362EDC2AA576710012D038 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB362EDA2AA576710012D038 /* Main.storyboard */; };
@@ -201,6 +202,7 @@
 		EB27DEBD2AAEF8B6001DDBB9 /* CircleCatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleCatVC.swift; sourceTree = "<group>"; };
 		EB27DEBF2AAF1758001DDBB9 /* OCBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCBridge.swift; sourceTree = "<group>"; };
 		EB27DEC12AAF313D001DDBB9 /* VideoCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionVC.swift; sourceTree = "<group>"; };
+		EB27DFB52AB2B906001DDBB9 /* ReportView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		EB362ED12AA576710012D038 /* WhaleBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhaleBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB362ED42AA576710012D038 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB362ED82AA576710012D038 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -632,6 +634,7 @@
 		EB362F9F2AA5811B0012D038 /* Circle */ = {
 			isa = PBXGroup;
 			children = (
+				EB27DFB52AB2B906001DDBB9 /* ReportView.swift */,
 				EB362FA22AA5813D0012D038 /* PostListVC.swift */,
 				EB362FCF2AA86E370012D038 /* CreatePostVC.swift */,
 				EB362FD12AA9C3B50012D038 /* PostDetailVC.swift */,
@@ -871,6 +874,7 @@
 				EB362F4E2AA576AD0012D038 /* String++.swift in Sources */,
 				EB362F952AA576C50012D038 /* Constants.swift in Sources */,
 				EB362F9A2AA576C50012D038 /* WebViewController.swift in Sources */,
+				EB27DFB62AB2B907001DDBB9 /* ReportView.swift in Sources */,
 				EB362F8B2AA576AD0012D038 /* RC4Tool.m in Sources */,
 				EB362F712AA576AD0012D038 /* UICollectionView+Chain.swift in Sources */,
 				EB362F722AA576AD0012D038 /* UIScrollView+Chain.swift in Sources */,
@@ -1095,7 +1099,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dofun.WhaleBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1136,7 +1140,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.whalebox.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

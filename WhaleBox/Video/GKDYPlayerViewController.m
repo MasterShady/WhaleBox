@@ -17,6 +17,7 @@
 #import "GKDYPlayerManager.h"
 #import "GKDYVideoPortraitCell.h"
 #import "GKDYVideoLandscapeCell.h"
+#import "WhaleBox-Swift.h"
 
 @interface GKDYPlayerViewController ()<GKDYPlayerManagerDelegate>
 
@@ -183,14 +184,20 @@
 }
 
 - (void)cellDidClickComment:(GKDYVideoModel *)model {
-//    GKDYCommentView *commentView = [GKDYCommentView new];
-//    commentView.backgroundColor = UIColor.whiteColor;
-//    commentView.frame = CGRectMake(0, 0, SCREEN_WIDTH, ADAPTATIONRATIO * 980.0f);
-//
-//    GKSlidePopupView *popupView = [GKSlidePopupView popupViewWithFrame:UIScreen.mainScreen.bounds contentView:commentView];
-//    [popupView showFrom:UIApplication.sharedApplication.keyWindow completion:^{
-//        [commentView requestData];
-//    }];
+    ReportView *reportView = [ReportView new];
+    @weakify(self)
+    [reportView setDismissHandler:^(BOOL report) {
+        @strongify(self)
+        if (report){
+            [self.manager.dataSources removeObject:model];
+            [self.manager.scrollView reloadData];
+            [@"感谢您的反馈,我们会对视频进行审核并处理" hint];
+        }else{
+            
+        }
+    }];
+    [reportView popFromCenterWithMask:true tapToDismiss:false];
+    
 }
 
 - (void)cellZoomBegan:(GKDYVideoModel *)model {

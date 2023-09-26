@@ -36,6 +36,9 @@ target 'WhaleBox' do
   pod 'SDWebImage'
   pod 'SDWebImageWebPCoder'
   pod 'GKNavigationBar'
+  pod 'FTPopOverMenu_Swift', '~> 0.4.3'
+
+
   #pod 'YYModel'
   
 end
